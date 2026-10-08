@@ -1,0 +1,1081 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Кто убивал людей на Майдане 20 февраля 2014 года — анализ Claude</title>
+<meta name="description" content="20 февраля 2014 года на Институтской в Киеве убиты 48 протестующих. Кто стрелял: приговор, книга Качановского и видео — минута за минутой.">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:url" content="https://maidan-2014.github.io/index.ru.html">
+<meta property="og:title" content="Кто убивал людей на Майдане 20 февраля 2014 года — анализ Claude">
+<meta property="og:description" content="20 февраля 2014 года на Институтской убиты 48 протестующих. Приговор не вступил в силу (апелляция). Минута за минутой: что установил суд, что утверждает Качановский, что показывают видео, раны и пули.">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image" content="https://maidan-2014.github.io/og.ru.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400..800;1,7..72,400..600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* Layout: одна колонка чтения ~66 знаков; три тёмные «сцены» с профилем улицы, закреплённым на экране, между ними — кадры во всю ширину; дальше главы-объяснения со своей графикой. */
+:root{
+  --paper:#f2f3f1; --ink:#15181b; --ink2:#4a5056; --rule:#d5d8d6; --card:#ffffff; --tint:#e6e9e7;
+  --scene:#121417; --sink:#e9ebe8; --sink2:#8d959c; --rule2:#b3b9bd;
+  --rsp:#c8352b; --oth:#e0912f; --mai:#3b78c4; --hard:#9aa3ab; --force:#cfd5da;
+  --serif:"Literata", "PT Serif", Georgia, serif;
+  --sans:"IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#16181a; --ink:#e7e9e6; --ink2:#a6adb2; --rule:#30353a; --card:#1e2124; --tint:#2a2f34; --rule2:#4f575e; color-scheme:dark}}
+:root[data-theme="dark"]{--paper:#16181a; --ink:#e7e9e6; --ink2:#a6adb2; --rule:#30353a; --card:#1e2124; --tint:#2a2f34; --rule2:#4f575e; color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:19px;line-height:1.62;margin:0;font-optical-sizing:auto}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--mai);outline-offset:2px}
+.wrap{padding-inline:20px}
+.col{max-width:660px;margin-inline:auto}
+.wide{max-width:1040px;margin-inline:auto}
+p{margin:0 0 1.05em}
+h2{font-family:var(--serif);font-weight:750;font-size:clamp(28px,4.2vw,42px);line-height:1.12;letter-spacing:-.01em;margin:0 0 .6em;text-wrap:balance}
+h3{font-family:var(--sans);font-weight:600;font-size:14px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink2);margin:0 0 .8em}
+.kick{font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--ink2);margin-bottom:10px}
+.who{text-decoration:none;border-bottom:1px solid currentColor}
+.who:hover{border-bottom-width:2px}
+.sec{padding-block:76px 28px}
+.cap{font-family:var(--sans);font-size:14px;color:var(--ink2);line-height:1.45}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+/* ---------- обложка ---------- */
+.cover{background:var(--scene);color:var(--sink);padding-block:64px 40px}
+.cover .kick{color:var(--sink2)}
+.cover h1 .h1ai{display:block;margin-top:.28em;font-family:var(--sans,system-ui,sans-serif);font-weight:600;font-size:max(26px,.44em);line-height:1.15;letter-spacing:-.01em;color:inherit;opacity:.55}
+.cover h1{font-family:var(--serif);font-weight:800;font-size:clamp(42px,7.6vw,92px);line-height:.98;letter-spacing:-.025em;margin:.2em 0 .4em;text-wrap:balance;max-width:13ch}
+.cover .dek{font-size:clamp(19px,2.2vw,23px);line-height:1.5;color:#c9cfd3;max-width:38em;margin:0}
+.cover .verdict{font-family:var(--sans);font-size:clamp(16px,1.7vw,18px);line-height:1.5;color:#f4f5f3;max-width:44em;margin:18px 0 0;padding-left:14px;border-left:3px solid var(--rsp)}
+.cover .by{font-family:var(--sans);font-size:14px;color:var(--sink2);margin-top:24px}
+.dosbtn{display:inline-block;margin-top:18px;font-family:var(--sans);font-weight:600;font-size:15px;color:#121417;background:#f2f3f1;padding:10px 16px;text-decoration:none}
+.dosbtn:hover{background:#fff}
+.toc{display:flex;flex-wrap:wrap;gap:0 22px;margin-top:30px;font-family:var(--sans);font-size:14px}
+.toc a{color:#c9cfd3;text-decoration:none;border-bottom:1px solid #3a4148;padding:8px 0 4px;display:inline-block}
+.toc a:hover{color:#fff;border-color:#fff}
+
+/* ---------- кадры ---------- */
+figure.bleed{margin:0;background:var(--scene);color:var(--sink2)}
+figure.bleed img{display:block;width:100%;height:auto;max-height:86vh;object-fit:cover}
+figure.bleed.mid img{max-width:1100px;margin-inline:auto;object-fit:contain}
+figure.bleed figcaption{font-family:var(--sans);font-size:14px;line-height:1.5;padding:12px 20px 26px;max-width:1100px;margin-inline:auto;color:#aab1b6}
+figure.bleed figcaption b{color:#e9ebe8;font-weight:600}
+.tri{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:4px;max-width:1400px;margin-inline:auto}
+.tri img{width:100%;height:100%;object-fit:cover;aspect-ratio:16/10;max-height:none}
+@media (max-width:700px){.tri{grid-template-columns:1fr}}
+
+
+/* ---------- кадры: «экран просмотра» ---------- */
+.board{background:#0b0d0f;color:var(--sink);padding:72px 20px 64px;border-top:1px solid #1d2125;border-bottom:1px solid #1d2125}
+.board-in{max-width:1180px;margin-inline:auto;display:grid;grid-template-columns:minmax(0,290px) minmax(0,1fr);gap:36px;align-items:end}
+.board-in.rev{grid-template-columns:minmax(0,1fr) minmax(0,290px)}
+.board-in.full{grid-template-columns:minmax(0,1fr)}
+.bt{font-family:var(--mono);font-size:clamp(30px,3.6vw,46px);font-weight:600;color:#f4f5f3;letter-spacing:-.02em;line-height:1;margin-bottom:16px;font-variant-numeric:tabular-nums}
+.bcap p{font-size:17px;line-height:1.58;color:#c9cfd3;margin:0 0 14px}
+.bcap{border-top:2px solid #f4f5f3;padding-top:16px}
+.wide-cap{display:grid;grid-template-columns:minmax(0,290px) minmax(0,1fr) ;gap:6px 36px;align-items:start}
+.wide-cap .bt{margin:0}
+.wide-cap p{max-width:640px}
+.wide-cap .bsrc{grid-column:2}
+.bsrc{font-family:var(--sans);font-size:12.5px;color:#7f888f;letter-spacing:.02em;display:block}
+.frames{display:grid;gap:10px;min-width:0}
+.frames.two{grid-template-columns:repeat(2,minmax(0,450px));justify-content:center}
+.frames.three{grid-template-columns:1fr 1fr 1fr;align-items:start}
+.frames.three .frame img{aspect-ratio:16/9;object-fit:cover;width:100%;height:auto}
+.frame{position:relative;margin:0;background:#000;box-shadow:0 24px 60px rgba(0,0,0,.5);outline:1px solid #262b30}
+.frame img{display:block;width:100%;height:auto}
+.frame{cursor:zoom-in;width:100%;justify-self:center}
+.frame:focus-visible{outline:2px solid var(--mai);outline-offset:3px}
+.frame.small{max-width:760px;margin-left:auto}
+.frame .tc{position:absolute;left:0;top:0;font-family:var(--mono);font-size:12.5px;line-height:1;background:rgba(8,9,11,.84);color:#fff;padding:6px 9px;letter-spacing:.03em;font-variant-numeric:tabular-nums}
+.frame::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 80px rgba(0,0,0,.35);pointer-events:none}
+@media (max-width:860px){
+  .board{padding:48px 16px 40px}
+  .board-in,.board-in.rev{grid-template-columns:minmax(0,1fr);gap:20px}
+  .board-in .frames{order:1}.board-in .bcap{order:2}
+  .wide-cap{grid-template-columns:minmax(0,1fr)}.wide-cap .bsrc{grid-column:auto}
+  .frames.three{grid-template-columns:1fr 1fr}.frames.three .frame:first-child{grid-column:1/-1}
+  .frame.small{margin-left:0}
+}
+@media (max-width:700px){
+  .frames.two,.frames.three{grid-template-columns:minmax(0,1fr)}
+  .frames.three .frame:first-child{grid-column:auto}
+}
+/* увеличение кадра */
+.lbx{position:fixed;inset:0;z-index:50;background:rgba(5,6,7,.94);display:none;flex-direction:column;align-items:center;justify-content:center;padding:52px 16px 16px;cursor:zoom-out}
+.lbx.on{display:flex}
+.lbx img{max-width:100%;max-height:calc(100svh - 150px);width:auto;height:auto;display:block;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+.lbx p{font-family:var(--sans);font-size:14px;line-height:1.45;color:#c9cfd3;max-width:900px;margin:12px 0 0;text-align:center}
+.lbx p b{font-family:var(--mono);color:#fff;font-weight:600;margin-right:8px}
+.lbx button{position:absolute;top:10px;right:12px;width:40px;height:40px;border:1px solid #3a4148;background:#121417;color:#f4f5f3;font-size:20px;line-height:1;cursor:pointer}
+.street .tagbg{fill:#121417;opacity:.88}
+
+/* ---------- сцена ---------- */
+.scrolly{background:var(--scene);color:var(--sink);position:relative}
+/* 07.10: название части — внутри закреплённой сцены, над часами: видно всё время, пока идёт часть */
+.act-t{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 16px;margin:0 0 12px;padding-bottom:10px;border-bottom:1px solid #2c3238}
+.act-t .kick{color:var(--sink2);margin:0;font-size:12.5px}
+.act-t h2{color:#f4f5f3;margin:0;font-size:clamp(24px,2.6vw,34px);line-height:1.1}
+.scrolly{padding-top:1px}
+.stage{position:sticky;top:env(safe-area-inset-top,0px);height:100vh;height:100svh;display:flex;flex-direction:column;justify-content:center;padding:12px 16px;z-index:1}
+.stage-in{max-width:1180px;width:100%;margin-inline:auto;position:relative}
+.clock{display:flex;align-items:baseline;gap:18px;font-family:var(--sans);color:var(--sink2);font-size:14px;margin-bottom:4px;flex-wrap:wrap}
+.clock b{font-family:var(--mono);font-weight:600;font-size:clamp(30px,4.4vw,54px);color:var(--sink);letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1}
+.clock i{font-style:normal;font-family:var(--mono);color:var(--sink);font-size:18px}
+.clock b.sm{font-size:clamp(20px,2.6vw,30px);text-transform:uppercase;letter-spacing:.01em}
+svg.street{width:100%;height:auto;display:block;overflow:visible}
+.street text{font-family:var(--sans);fill:var(--sink2);font-size:13px}
+.street .bld{fill:#1f2327;stroke:#353c43;stroke-width:1}
+.street .road{fill:none;stroke:#7d868e;stroke-width:2}
+.street .ground{fill:#191c1f}
+.street .zone-lab{font-size:12px;fill:#7f888f}
+.street .lm{font-size:13px;fill:#9aa2a8}
+.street .front{fill:rgba(200,53,43,.07);transition:x .9s ease,width .9s ease}
+.street .frontline{stroke:#c8352b;stroke-width:1.5;stroke-dasharray:3 4}
+.street .fg{transition:transform .9s ease,opacity .5s}
+.street .flab{font-size:12px;fill:#e88a83;letter-spacing:.06em;text-transform:uppercase}
+.street .mlab{font-size:12px;fill:#86ade0;letter-spacing:.06em;text-transform:uppercase}
+.street .sq{transition:opacity .45s ease,transform .45s ease;transform-box:fill-box;transform-origin:center}
+.street .sq.off{opacity:0;transform:scale(.4)}
+.street .sq.dim{opacity:.3}
+.street .sq.hl rect{stroke:#fff;stroke-width:2}
+.street .fd{fill:none;stroke:var(--force);stroke-width:1.6;transition:opacity .45s}
+.street .fd.off{opacity:0}
+.street .tag{font-size:13px;fill:#f1f3f2;font-weight:500}
+.street .arrow{stroke:#86ade0;stroke-width:1.6;stroke-dasharray:5 5;fill:none;opacity:0;transition:opacity .5s}
+.street .arrow.on{opacity:1}
+.legend{display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px;font-family:var(--sans);font-size:13px;color:var(--sink2);margin-top:6px}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+.legend i{width:11px;height:11px;display:inline-block;flex:none}
+.legend .mo{display:none}
+.legend .sat{gap:2px}.legend .sat i{width:9px;height:11px;background:var(--rsp)}
+.legend .sat em{font-style:normal;margin-left:5px}
+.legend .q{display:none;width:22px;height:22px;border-radius:50%;border:1px solid #4a5258;background:transparent;color:var(--sink);font:600 12px/1 var(--sans);cursor:pointer;padding:0;flex:none}
+.lnote{font-family:var(--sans);font-size:12.5px;line-height:1.45;color:#9aa2a8;margin:5px 0 0;max-width:62em}
+.lnote b{color:#c9cfd3;font-weight:600}
+@media (hover:none){.lnote .hv{display:none}}
+/* подсказка у квадрата */
+.sqtip{position:absolute;z-index:5;pointer-events:none;max-width:260px;background:#0b0d0f;border:1px solid #3a4148;border-top:2px solid #e9ebe8;padding:8px 11px 9px;font-family:var(--sans);font-size:13px;line-height:1.4;color:#c9cfd3;box-shadow:0 10px 26px rgba(0,0,0,.55);opacity:0;transition:opacity .15s}
+.sqtip.on{opacity:1}
+.sqtip b{display:block;color:#f4f5f3;font-size:14px}
+.sqtip .tm{font-family:var(--mono);font-size:12px;color:#9aa2a8}
+.sqtip .v{display:block;margin-top:4px;color:#e9ebe8}
+.sqtip .sh{display:block;font-size:12px;color:#9aa2a8;white-space:normal;overflow-wrap:anywhere}
+.sqtip{overflow-wrap:break-word}
+.street a{cursor:pointer}
+.street a:focus{outline:none}
+.street a:focus-visible .sq rect{stroke:#86ade0;stroke-width:2.5}
+.street .sq.off{pointer-events:none}
+.steps{position:relative;z-index:2;pointer-events:none;margin-top:-100vh;margin-top:-100svh;padding-bottom:30vh}
+.step{min-height:90vh;display:flex;align-items:flex-end;padding-inline:16px;pointer-events:none}
+.step:first-child{min-height:0;padding-top:100vh;padding-bottom:20vh;align-items:flex-start}
+.step .box{pointer-events:auto;max-width:390px;background:rgba(14,16,18,.96);border:1px solid #262b30;border-top:2px solid #e9ebe8;box-shadow:0 18px 40px rgba(0,0,0,.45);padding:16px 20px 18px;font-size:17.5px;line-height:1.55;color:#dfe3e1;margin-bottom:6vh}
+.step .box .t{font-family:var(--mono);font-size:13px;color:#fff;background:#000;display:inline-block;padding:4px 8px;margin-bottom:10px;letter-spacing:.03em;font-variant-numeric:tabular-nums}
+.step .box b.h{font-family:var(--serif);font-weight:700;font-size:21px;display:block;line-height:1.25;margin-bottom:8px;color:#f4f5f3}
+.step .box p{margin:0 0 .6em}
+.step .box p:last-child{margin-bottom:0}
+.step .box a{color:#f4f5f3}
+.step .kat{font-family:var(--sans);font-size:14.5px;line-height:1.5;color:#c3cad0;border-top:1px solid #2c3238;padding-top:10px;margin-top:10px}
+.step .nav{display:flex;gap:10px;align-items:flex-start;font-family:var(--sans);font-size:14px;line-height:1.5;color:#b9c1c7;border-top:1px solid #2c3238;padding-top:11px;margin-top:12px}
+.step .nav::before{content:"";flex:none;width:11px;height:11px;margin-top:5px;background:#e9ebe8;box-shadow:3px 3px 0 #4a5258}
+.step .nav b{color:#e9ebe8;font-weight:600}
+.step .box p.nav:last-child{margin-bottom:0}
+.step .kat b{color:#86ade0;font-weight:600;letter-spacing:.04em;text-transform:uppercase;font-size:12px;display:block;margin-bottom:2px}
+.kat b.kr{color:#e9ebe8;margin-top:10px}
+.step .kat p{margin:0}
+.kat .kc{padding-left:10px;border-left:2px solid #86ade0;font-style:italic;color:#c3cad0}
+.kat .kc + b.kr + p{padding-left:10px;border-left:2px solid #e9ebe8;color:#dfe3e1}
+@media (min-width:1000px){
+  /* две колонки в общей рамке до 1440px: текст 380px слева, графика справа, зазор 48px */
+  .stage{padding-left:calc(max(24px,(100vw - 1440px)/2) + 428px);padding-right:max(24px,(100vw - 1440px)/2)}
+  .stage-in{max-width:none;margin:0}
+  .step{align-items:center;padding-left:max(24px,calc((100vw - 1440px)/2))}
+  .step .box{margin-bottom:0;max-width:380px;width:380px}
+}
+@media (max-width:999px){
+  .stage{justify-content:flex-start;padding-top:max(12px,env(safe-area-inset-top,0px))}
+  .step .box{margin-inline:auto;font-size:16.5px}
+}
+@media (max-width:699px){
+  .stage{height:auto;z-index:3;background:var(--scene);padding:8px 12px 8px;box-shadow:0 14px 24px -10px rgba(0,0,0,.8)}
+  /* сцена на телефоне не выше ~40% экрана: высота графики фиксирована, кадр приближения подстраивается */
+  .scrolly svg.street{height:clamp(140px,calc(40svh - 104px),250px)}
+  .scrolly svg.street text{font-size:calc(var(--k,2.6) * 11px)}
+  .scrolly svg.street .tag{font-size:calc(var(--k,2.6) * 11.5px)}
+  .scrolly svg.street .flab,.scrolly svg.street .mlab{font-size:calc(var(--k,2.6) * 11px);letter-spacing:.03em}
+  .scrolly svg.street .hid{display:none}
+  .stage .legend{flex-wrap:wrap;gap:0 9px;font-size:11px;margin-top:4px;white-space:nowrap;line-height:22px}
+  .stage .legend i{width:10px;height:10px}
+  .stage .legend span{gap:4px}
+  .stage .legend .xs,.stage .legend .sat{display:none}
+  .stage .legend .mo{display:inline}
+  .clock b.sm{font-size:16px}
+  .stage .legend .q{display:inline-block;margin-left:auto}
+  .stage .lnote{display:none;font-size:12px;margin-top:4px}
+  .stage.lopen .lnote{display:block}
+  .clock{gap:4px 10px;margin-bottom:2px;flex-wrap:nowrap;white-space:nowrap}
+  .clock b{font-size:24px}
+  .clock span{font-size:12.5px}
+  .clock i{font-size:15px}
+  .steps{margin-top:0;padding-bottom:45vh}
+  .step,.step:first-child{min-height:0;padding-block:28vh 0;align-items:flex-start}
+  .step:first-child{padding-top:6vh}
+  .step .box{margin-bottom:0}
+  .act-t{margin-bottom:5px;padding-bottom:5px;gap:2px 10px;flex-wrap:nowrap;white-space:nowrap;overflow:hidden}
+  .act-t .kick{font-size:10.5px;letter-spacing:.06em;order:2;overflow:hidden;text-overflow:ellipsis}
+  .act-t h2{font-size:18px;flex:none}
+  .scrolly{padding-top:18px}
+}
+@media (min-width:1000px){.legend .q{display:none}}
+@media (min-width:700px) and (max-width:999px){
+  .stage .legend .q{display:inline-block}
+  .stage .lnote{display:none}
+  .stage.lopen .lnote{display:block}
+}
+@media (max-width:640px){
+  .street text{font-size:17px}.firemap .street text{font-size:15px}.firemap .street .pin text{font-size:18px}.street .zone-lab,.street .flab,.street .mlab{font-size:15px}.street .tag{font-size:17px}.street .lm{font-size:16px}
+  .legend{font-size:12px;gap:4px 12px}
+}
+
+/* ---------- текст ---------- */
+.lede p:first-of-type:not(.nd)::first-letter{font-weight:800;float:left;font-size:3.6em;line-height:.86;padding:.06em .08em 0 0}
+.pull{font-family:var(--serif);font-size:clamp(24px,3vw,30px);line-height:1.3;font-weight:500;font-style:italic;margin:1.4em 0;padding-left:20px;border-left:3px solid var(--ink);text-wrap:balance}
+.pull small{display:block;font-family:var(--sans);font-style:normal;font-size:14px;color:var(--ink2);margin-top:8px}
+.tl{list-style:none;margin:22px 0;padding:0;font-size:17px;line-height:1.5}
+.tl li{display:grid;grid-template-columns:118px minmax(0,1fr);gap:14px;padding:12px 0;border-top:1px solid var(--rule)}
+.tl li > span{font-family:var(--mono);font-size:14px;color:var(--ink2);padding-top:2px}
+@media (max-width:520px){.tl li{grid-template-columns:1fr;gap:2px}}
+
+/* три линзы и три случая */
+.lens{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin:28px 0 8px}
+.lens > div{min-width:0;border-top:3px solid var(--ink);padding-top:12px}
+.lens svg{width:100%;height:auto;max-height:96px;display:block;margin-bottom:10px}
+.lens b{font-family:var(--sans);font-size:15px;font-weight:600;display:block;margin-bottom:4px}
+.lens p{font-family:var(--sans);font-size:15px;line-height:1.5;color:var(--ink2);margin:0}
+.lens .ic{stroke:var(--ink);fill:none;stroke-width:2}
+.lens .icf{fill:var(--ink)}
+.lens .icr{stroke:var(--rsp);fill:none;stroke-width:2}
+@media (max-width:640px){.lens{grid-template-columns:1fr}.lens svg{max-height:70px;width:auto}}
+.cases{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:30px 0 10px}
+.case{min-width:0;background:var(--card);border:1px solid var(--rule);padding:18px 18px 16px;display:flex;flex-direction:column;gap:10px}
+.case h4{font-family:var(--serif);font-size:20px;font-weight:700;margin:0;line-height:1.2}
+.case h4 small{display:block;font-family:var(--mono);font-size:13px;font-weight:500;color:var(--ink2);margin-top:3px}
+.case dl{margin:0;display:grid;gap:9px;align-content:start}
+.case dt{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--ink2);display:flex;align-items:center;gap:7px}
+.case dd{margin:0;font-family:var(--sans);font-size:14.5px;line-height:1.45}
+.mk{width:16px;height:16px;border-radius:50%;display:inline-grid;place-items:center;font-size:11px;font-weight:700;color:#fff;flex:none}
+.mk.y{background:#2e7d4f}.mk.p{background:#b8862b;color:#121417}.mk.n{background:#8a9096}
+.case .res{margin-top:auto;padding-top:10px;border-top:1px solid var(--rule)}
+@supports (grid-template-rows:subgrid){@media (min-width:821px){.cases{grid-auto-rows:auto;row-gap:0}.case{display:grid;grid-row:span 3;grid-template-rows:subgrid;align-content:start}.case .res{margin-top:0;align-self:start}}}
+.sbar{display:flex;height:12px;margin:6px 0 4px}
+.sbar i{display:block;height:100%}
+.case .res span{font-family:var(--sans);font-size:13.5px;color:var(--ink2)}
+.case .res b{font-family:var(--sans);font-size:14.5px}
+@media (max-width:820px){.cases{grid-template-columns:1fr}}
+.grid48{display:grid;grid-template-columns:repeat(24,minmax(0,1fr));gap:4px;margin:18px 0 6px;max-width:660px}
+.grid48 a{aspect-ratio:1;display:block;background:var(--hard);opacity:.28;position:relative}
+.grid48 a.b{opacity:1;background:var(--rsp)}
+.grid48 a:hover,.grid48 a:focus-visible{opacity:1;outline:2px solid var(--ink);outline-offset:1px}
+.grid48 a.b::after{content:"";position:absolute;inset:32%;background:var(--paper);border-radius:50%}
+@media (max-width:520px){.grid48{grid-template-columns:repeat(12,minmax(0,1fr))}}
+
+/* карта огня */
+.firemap{background:var(--scene);color:var(--sink);padding-block:64px 40px}
+.firemap h2{color:#f4f5f3}
+.firemap .kick{color:var(--sink2)}
+.firemap p{color:#c9cfd3}
+.fm-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px;margin-top:22px;font-family:var(--sans);font-size:15px;line-height:1.5;color:#c9cfd3}
+.fm-list h3{color:#f4f5f3;display:flex;align-items:center;gap:8px}
+.fm-list ol{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.fm-list li{display:grid;grid-template-columns:28px minmax(0,1fr);gap:8px}
+.fm-list .num{width:22px;height:22px;display:grid;place-items:center;font-size:12px;font-weight:700;color:#fff}
+.fm-list .num.m{background:var(--mai);border-radius:50%}
+.fm-list .num.f{background:var(--rsp)}
+.fm-list .num.o{background:var(--oth);color:#121417}
+.fm-list small{display:block;color:#8d959c;font-size:13px}
+@media (max-width:760px){.fm-list{grid-template-columns:1fr}}
+.fmscroll{position:relative}
+.fmhint{display:none;font-family:var(--sans);font-size:13px;color:#9aa2a8;margin:10px 0 4px}
+@media (max-width:759px){
+  .fmscroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-inline:-20px;padding-inline:20px;overscroll-behavior-x:contain}
+  .fmscroll svg{min-width:780px}
+  .fmhint{display:block}
+}
+.fmleg{display:flex;flex-wrap:wrap;gap:6px 18px;font-family:var(--sans);font-size:13.5px;color:#c9cfd3;margin-top:10px}
+.fmleg span{display:inline-flex;align-items:center;gap:7px}
+.fmleg i{width:12px;height:12px;display:inline-block}
+.street .pin text{font-size:12px;font-weight:700;fill:#fff;font-family:var(--sans)}
+.street .pin.o text{fill:#121417}
+.street .pin line{stroke:#5b646c;stroke-width:1}
+
+/* приказ */
+.chain{list-style:none;margin:28px 0 8px;padding:0;position:relative}
+.chain li{position:relative;padding:0 0 22px 40px}
+.chain li::before{content:"";position:absolute;left:11px;top:22px;bottom:0;border-left:2px solid var(--ink)}
+.chain li.gap::before{border-left:2px dashed var(--ink2)}
+.chain li:last-child::before{display:none}
+.chain .dot{position:absolute;left:3px;top:4px;width:18px;height:18px;border-radius:50%;background:var(--ink);border:3px solid var(--paper);box-shadow:0 0 0 2px var(--ink)}
+.chain li.q .dot{background:var(--paper)}
+.chain .when{font-family:var(--mono);font-size:13.5px;color:var(--ink2)}
+.chain b{display:block;font-family:var(--sans);font-size:16px;font-weight:600;line-height:1.35;margin:2px 0 3px}
+.chain p{font-size:16.5px;line-height:1.5;margin:0}
+.pill{display:inline-block;font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.03em;padding:1px 8px;border:1.5px solid var(--ink);margin-top:6px}
+.pill.q{border-style:dashed;color:var(--ink2);border-color:var(--ink2)}
+.chain .break{font-family:var(--sans);font-size:14px;font-weight:600;color:var(--rsp);margin:-6px 0 18px 40px;padding:8px 12px;border:1.5px dashed var(--rsp);display:inline-block}
+
+/* полосы */
+.kb{margin:26px 0 8px;display:grid;gap:16px;font-family:var(--sans)}
+.kb .row{display:grid;grid-template-columns:minmax(0,1fr);gap:4px}
+.kb .lab{font-size:15px;font-weight:500;line-height:1.35}
+.kb .lab small{color:var(--ink2);font-weight:400}
+.kb .track{position:relative;height:22px;background:var(--tint);box-shadow:inset 0 0 0 1px var(--rule2)}
+.kb .track i{position:absolute;top:0;bottom:0}
+.kb .track b{position:absolute;top:-4px;bottom:-4px;width:3px;background:var(--ink)}
+.kb .track em{position:absolute;top:50%;transform:translateY(-50%);font-style:normal;font-family:var(--mono);font-size:13px;padding-left:8px;white-space:nowrap}
+.kb .axis{display:flex;justify-content:space-between;font-family:var(--mono);font-size:12px;color:var(--ink2);margin-top:-6px}
+.rangem{background:rgba(59,120,196,.16);border:1.5px solid var(--mai)}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin:24px 0}
+.two > div{min-width:0;font-size:17px;line-height:1.55}
+.two h3{border-bottom:1px solid var(--rule);padding-bottom:8px}
+.two ul{margin:0;padding-left:1.1em}.two li{margin-bottom:.6em}
+@media (max-width:700px){.two{grid-template-columns:1fr}}
+
+/* итог */
+.tally{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin:30px 0 10px}
+.tally > div{min-width:0;display:flex;flex-direction:column}
+.tally .bar{margin-top:auto!important}
+.tally .rng{margin-bottom:12px}
+.nw{white-space:nowrap}
+.tally .big{font-family:var(--serif);font-weight:800;font-size:clamp(52px,8vw,88px);line-height:.95;letter-spacing:-.03em}
+.tally .lab{font-family:var(--sans);font-size:15px;font-weight:600;margin-top:6px}
+.tally .rng{font-family:var(--sans);font-size:14px;color:var(--ink2);margin-top:2px}
+.tally .bar{height:8px;margin-top:12px;background:var(--rule);position:relative}
+.tally .bar i{position:absolute;top:0;bottom:0;opacity:.35}
+.tally .bar b{position:absolute;top:-4px;bottom:-4px;width:3px}
+@media (max-width:640px){.tally{grid-template-columns:1fr;gap:18px}}
+.units{margin:34px 0 0;display:grid;gap:18px}
+.ugrp{display:grid;grid-template-columns:150px minmax(0,1fr);gap:14px;align-items:start}
+.ugrp h4{font-family:var(--sans);font-size:14px;font-weight:600;margin:2px 0 0;line-height:1.3}
+.ugrp h4 small{display:block;font-weight:400;color:var(--ink2)}
+.ugrp .nm{display:flex;flex-wrap:wrap;gap:5px 6px}
+.ugrp .nm a{font-family:var(--sans);font-size:13.5px;text-decoration:none;display:inline-flex;align-items:center;gap:6px;padding:2px 8px 2px 4px;background:var(--card);border:1px solid var(--rule);line-height:1.5}
+.ugrp .nm a i{width:10px;height:10px;display:inline-block;flex:none}
+@media (max-width:640px){.ugrp .nm a{padding:7px 10px 7px 6px}}
+.ugrp .nm a:hover{border-color:var(--ink)}
+@media (max-width:640px){.ugrp{grid-template-columns:1fr;gap:6px}}
+.ib{display:flex;height:34px;margin:16px 0 6px;font-family:var(--sans);font-size:13px;color:#fff}
+.ib i:first-child{color:#121417}
+.ibl .n{display:none;font-family:var(--mono);font-weight:600;color:var(--ink)}
+@media (max-width:640px){.ib{height:18px}.ib i{font-size:0}.ibl{display:grid;gap:4px}.ibl .n{display:inline}}
+.ib i{display:flex;align-items:center;justify-content:center;font-style:normal;font-weight:600;min-width:0;overflow:hidden;white-space:nowrap}
+.ibl{display:flex;flex-wrap:wrap;gap:4px 18px;font-family:var(--sans);font-size:14px;color:var(--ink2)}
+.ibl span{display:inline-flex;align-items:center;gap:6px}.ibl i{width:11px;height:11px;display:inline-block}
+.vers{margin:16px 0 0;display:grid;gap:8px;font-family:var(--sans);font-size:15px}
+.vers div{display:grid;grid-template-columns:minmax(0,1fr) 120px 44px;gap:10px;align-items:center}
+.vers .t{height:10px;background:var(--tint);position:relative;box-shadow:inset 0 0 0 1px var(--rule2)}.vers .t i{position:absolute;left:0;top:0;bottom:0;background:var(--ink2)}
+.vers b{font-family:var(--mono);font-size:14px;text-align:right;font-weight:500}
+@media (max-width:520px){.vers div{grid-template-columns:minmax(0,1fr) 70px 40px}}
+.open{counter-reset:o;list-style:none;padding:0;margin:0}
+.open li{counter-increment:o;padding:14px 0 14px 46px;border-top:1px solid var(--rule);position:relative}
+.open li::before{content:counter(o);position:absolute;left:0;top:10px;font-family:var(--serif);font-weight:800;font-size:28px;color:var(--ink2)}
+.dossier{background:var(--scene);color:var(--sink);padding-block:64px}
+.dossier h2{color:#f4f5f3}
+.dossier p{color:#c9cfd3}
+.dossier .kick{color:var(--sink2)}
+.dossier .go{display:inline-block;margin-top:10px;font-family:var(--sans);font-weight:600;font-size:17px;color:#121417;background:#f2f3f1;padding:12px 20px;text-decoration:none}
+.dossier .go:hover{background:#fff}
+.dossier ul{font-family:var(--sans);font-size:15px;color:#aeb5ba;columns:2;column-gap:28px;padding-left:1.1em;margin:22px 0}
+@media (max-width:640px){.dossier ul{columns:1}}
+.foot{font-family:var(--sans);font-size:13.5px;color:var(--ink2);padding-block:28px 48px;line-height:1.55}
+@media (max-width:640px){body{font-size:18px}.sec{padding-block:56px 18px}}
+</style>
+<style>/*uq*/.uq-tr{color:var(--muted,#666);font-style:normal;font-size:.94em}</style><style>/*i18n*/.i18n-sw{display:inline-flex;gap:2px;align-items:center;font:600 12px/1 var(--sans,system-ui,sans-serif);margin-right:10px}.i18n-sw a{padding:5px 6px;border-radius:4px;color:var(--muted,#888);text-decoration:none;letter-spacing:.04em}.i18n-sw a[aria-current]{color:var(--ink,#111);background:var(--soft,rgba(127,127,127,.15))}.i18n-sw.fx{position:fixed;top:10px;right:12px;z-index:50;background:rgba(14,16,18,.85);border:1px solid #2c3238;border-radius:6px;padding:2px}.i18n-sw.fx a{color:#9aa2a8}.i18n-sw.fx a[aria-current]{color:#f4f5f3;background:#2c3238}@media (max-width:700px){.i18n-sw{margin-right:6px}.i18n-sw a{padding:4px 4px}}</style></head>
+<body>
+<header class="cover wrap" id="top">
+  <div class="wide">
+    <div class="kick">Киев · 20 февраля 2014</div>
+    <h1>Кто убивал людей на Майдане 20 февраля 2014 года<span class="h1ai">— анализ Claude</span></h1>
+    <p class="dek">20 февраля 2014 года на улице Институтской, ведущей от Майдана к правительственному кварталу, и рядом с ней убиты 48 протестующих, почти все — за одно утро. Суд в 2023 году возложил большинство смертей на киевский «Беркут». Политолог Иван Качановский утверждает обратное: людей убивали стрелки самого Майдана. Анализ на этой странице сделал ИИ Claude: он сверил обе версии по каждой из 48 смертей.</p>
+    <p class="verdict">По оценке Claude, примерно 28 из 48 смертей приходятся на спецроту «Беркута», около 11 — на других силовиков, около 9 — на огонь со стороны Майдана.</p>
+    <div class="by">Разбор по материалам дела · 7 октября 2026 · около 30 минут чтения</div><div class="by aidisc" style="font-size:.86em;opacity:.72;margin-top:.5em">Подготовлено с помощью Claude — модели ИИ компании Anthropic. Anthropic не связана с этим проектом, не проверяла и не одобряла его.</div>
+    <a class="dosbtn" href="dossier.ru.html">Полное досье: 48 карточек, метод, источники →</a>
+    <nav class="toc" aria-label="Главы">
+      <a href="#before">Накануне</a><a href="#act1">Мостик</a><a href="#act2">Дворец и аллея</a><a href="#act3">Баррикада</a><a href="#act3b">У метро</a><a href="#weigh">Как Claude взвешивает</a><a href="#fire">Кто откуда стрелял</a><a href="#maidan">Другая сторона</a><a href="#order">Кто дал приказ стрелять</a><a href="#kat">Спор с Качановским</a><a href="#result">Итог</a><a href="#open">Что остаётся открытым</a><a href="dossier.ru.html"><b>Досье →</b></a>
+    </nav>
+  </div>
+</header>
+
+<section class="sec wrap" id="before"><div class="col lede">
+  <div class="kick">Дело и спор</div>
+  <h2>Приговор, который ещё не вступил в силу</h2>
+  <p class="nd">18 октября 2023 года Святошинский районный суд Киева вынес приговор пятерым бывшим бойцам киевского «Беркута». Одного, заместителя командира полка, суд заочно приговорил к пожизненному лишению свободы. Двоих — к 15 годам за убийства при исполнении явно преступного приказа, одного — к пяти годам за превышение полномочий. Одного оправдал.</p>
+  <p>Причастность осуждённых суд установил к 35 смертям из 48. По двум смертям он прямо указал на сектор гостиницы «Украина». В декабре 2019 года всех подсудимых передали на неподконтрольную Украине территорию при обмене удерживаемыми лицами. Апелляция идёт до сих пор, решения нет.</p>
+  <p>Главный критик приговора — Иван Качановский, политолог из Оттавского университета. В книге «Расстрел на Майдане в Украине» (Palgrave Macmillan, 2024) он утверждает, что большинство или почти всех погибших убили организованные стрелки со стороны Майдана в операции под ложным флагом, которую провела часть руководства протеста.</p>
+  <p class="pull">Claude прошёл по всем 48 смертям и по каждой задал один вопрос: чей выстрел вероятнее, с учётом всего, что известно, и всего, что оспаривает Качановский.<small>Проценты в этом тексте — оценки Claude по материалам дела, а не установленные факты.</small></p>
+  <h3 style="margin-top:2.2em">Накануне</h3>
+  <p>Утро 20 февраля началось не с нуля. За два дня до этого протест впервые превратился в перестрелку.</p>
+  <ol class="tl">
+    <li><span>18 февраля</span><div>Шествие к Раде, разгон, вечером штурм Майдана. За сутки погибли 19 протестующих и 8 силовиков, огнестрельные ранения получили 120 и 133 человека. Суд пишет, что насилие применяли обе стороны, в том числе скрыто использовали огнестрельное оружие.</div></li>
+    <li><span>18 февраля, день</span><div>Министр внутренних дел, глава СБУ и другие должностные лица решают использовать полномочия силовиков на применение оружия. Спецрота киевского полка «Беркут» получает автоматы, пистолеты и помповые ружья.</div></li>
+    <li><span>19 февраля</span><div>Противостояние стихает. На Институтской за перекрёстком с Ольгинской краны ставят бетонные блоки: к вечеру готова баррикада высотой до трёх метров. Поздно вечером объявлено перемирие.</div></li>
+    <li><span>ночь на 20-е</span><div>Спецрота с ночи на 19-е стоит в резерве у Октябрьского дворца; на рукавах у бойцов жёлтый скотч, чтобы отличать своих. По камерам ночь проходит относительно тихо.</div></li>
+  </ol>
+  <p>Обе стороны к утру знали, что противник стреляет боевыми патронами.</p>
+</div></section>
+
+<section class="board" aria-label="Кадр 08:59:54"><div class="board-in">
+  <div class="bcap"><div class="bt">08:59:54</div><p>Группа «Беркута» с зелёными метками стреляет из-за парапета над мостиком. Это не киевская спецрота: суд считает её крымской, обвинение — ротой из Севастополя. За двадцать секунд до этого кадра у мостика выстрелом картечи убит Георгий Арутюнян; суд установил, что стреляла эта группа.</p><span class="bsrc">Кадр: Jus Talionis, авторы реконструкции «Висота»</span></div>
+  <div class="frames one"><figure class="frame"><img src="img/g04.webp" alt="Бойцы в шлемах с зелёными метками стреляют из-за гранитного парапета; вспышка выстрела" width="1325" height="840"><span class="tc">08:59:54</span></figure></div>
+</div></section>
+
+<!-- ======================= АКТ I ======================= -->
+<section class="scrolly" id="act1" aria-label="05:30–09:12, у мостика">
+  <div class="stage"><div class="stage-in">
+    <div class="act-t"><span class="kick">Часть первая · 05:30 — 09:12</span><h2>Мостик</h2></div>
+    <div class="clock"><b class="clk sm">итог дня</b><span>погибших протестующих: <i class="cnt">48</i> из 48</span></div>
+    <svg class="street" viewBox="0 70 1000 400" role="img" aria-label="Профиль улицы Институтской от Майдана до Банковой; квадраты — погибшие на местах гибели"></svg>
+  </div></div>
+  <div class="steps">
+    <div class="step" data-t="99999" data-front="-1"><div class="box">
+      <b class="h">Сорок восемь квадратов</b>
+      <p>Это профиль Институтской: слева Майдан, справа подъём к Банковой, перепад высоты около 18 метров. Каждый квадрат — один погибший протестующий, на месте, где его ранили (у Алексея Братушки место условное); в стопке они идут снизу вверх по времени.</p>
+      <p>Цвет — чей выстрел, по оценке Claude, вероятнее всего. Чем бледнее цвет, тем меньше уверенность. Почти все погибли с 08:59 до 10:31. Ниже это утро по минутам.</p>
+      <p class="nav"><span><b>Нажмите на квадрат или имя в тексте</b> — откроется карточка этого человека в досье. Вернуться сюда — кнопка <span class="nw">«← К истории»</span> вверху досье или <span class="nw">«Назад»</span> в браузере.</span></p>
+    </div></div>
+    <div class="step" id="st-0530" data-t="19800" data-front=".07" data-fd="3" data-arrow="cons"><div class="box">
+      <span class="t">05:30</span><b class="h">Первые выстрелы — по силовикам</b>
+      <p>Около 5:30 из здания Консерватории и с баррикад Майдана начинают стрелять по силовикам у Стелы. К 9:00, по данным, которые суд счёл доказанными, трое силовиков убиты и 39 ранены огнестрельным оружием. До 7:30 пробиты пулями кабины водомётов, после 7:55 одна за другой идут скорые.</p>
+      <p>Кто стрелял, суд не установил. Эти смерти, по его словам, «залишилися взагалі не розслідуваними» <span class="uq-tr" lang="ru" data-uq="70">(остались вообще не расследованными)</span>.</p>
+    </div></div>
+    <div class="step" id="st-0830" data-t="30600" data-front=".07" data-fd="3"><div class="box">
+      <span class="t">08:30</span><b class="h">Отход</b>
+      <p>Около 8:30 подразделения у Стелы начинают, по формулировке суда, «самостійно та стихійно» <span class="uq-tr" lang="ru" data-uq="22">(самостоятельно и стихийно)</span> уходить вверх по Институтской. Версию обвинения, что в эти минуты руководство МВД решило открыть огонь по людям, суд исключил: тех, кто мог такое решить, в этом деле не судили. Что такой приказ дошёл до полка, он счёл недоказанным.</p>
+    </div></div>
+    <div class="step" id="st-0855" data-t="32100" data-front=".16" data-fd="3"><div class="box">
+      <span class="t">08:55</span><b class="h">Протестующие идут следом</b>
+      <p>Со щитами, палками и коктейлями Молотова люди поднимаются к мостику. Среди них, по видео, есть отдельные вооружённые. Отход прикрывает группа «Беркута» с зелёными метками; её бойцы стреляют из помповых ружей «Форт-500».</p>
+    </div></div>
+    <div class="step" id="st-0859" data-t="32374" data-front=".16" data-fd="3" data-hl="Арутюнян"><div class="box">
+      <span class="t">08:59:34</span><b class="h">Первая смерть</b>
+      <p><a class="who" data-ep="ep-5-4-4">Георгий Арутюнян</a> идёт одним из первых. Его убивает заряд картечи. Суд установил, что выстрел сделан из ружья группы с зелёными метками, «у натовп» <span class="uq-tr" lang="ru" data-uq="203">(в толпу)</span> из-за парапета. Момент снят с двух точек, время на записях совпадает до секунды.</p>
+      <div class="kat"><b>Качановский утверждает</b><p class="kc">Трое убитых до выхода спецроты — жертвы стрелков Майдана.</p><b class="kr">Что показывает проверка (Claude)</b><p>По Арутюняну на видео в ту же секунду звучат выстрелы, похожие на выстрелы группы с зелёными метками, и канал раны идёт с её стороны; суд связал смерть с этой группой.</p></div>
+    </div></div>
+    <div class="step" id="st-0900" data-t="32520" data-front=".16" data-fd="3" data-hl="Вайда,Балюк"><div class="box">
+      <span class="t">09:00:37 — 09:02</span><b class="h">Две смерти без ответа</b>
+      <p>Через минуту у водомёта убит <a class="who" data-ep="ep-5-4-8">Богдан Вайда</a>, вскоре смертельно ранен <a class="who" data-ep="ep-5-4-10">Александр Балюк</a>. Здесь суд стрелка не нашёл. Картечь вошла Вайде сзади-слева; не исключён рикошет от кабины водомёта, по которой, возможно, стреляли со стороны протестующих.</p>
+      <p>По обоим Claude оценивает шансы почти поровну: это «трудно сказать».</p>
+    </div></div>
+    <div class="step" id="st-0903" data-t="32585" data-front=".27" data-fd="3"><div class="box">
+      <span class="t">09:03 — 09:05</span><b class="h">Спецрота открывает огонь</b>
+      <p>Киевская спецрота до этой минуты в своём сером автобусе. В 09:03:05 её бойцы делают первые выстрелы у угла Октябрьского дворца. Около 9:05 заместитель командира полка приказывает стрелять из автоматов, чтобы вывести из дворца силовиков, в основном срочников внутренних войск.</p>
+      <p>Суд назвал этот приказ «явно злочинним через вимогу її невибіркового застосування небезпечно поруч із скупченням активістів» <span class="uq-tr" lang="ru" data-uq="592">(явно преступным из-за требования его неизбирательного применения опасно рядом со скоплением активистов)</span>: стрелять велели неизбирательно, опасно близко к скоплению людей. Огонь на поражение по людям суд относит к 09:17.</p>
+    </div></div>
+    <div class="step" id="st-0907" data-t="33115" data-front=".27" data-fd="3" data-hl="Шимко,Сольчаник,Саенко,Ильков,Коцюба,Братушка"><div class="box">
+      <span class="t">09:07 — 09:12</span><b class="h">Пять минут у мостика</b>
+      <p>Гибнут <a class="who" data-ep="ep-5-4-18">Максим Шимко</a>, <a class="who" data-ep="ep-5-4-19">Богдан Сольчаник</a>, <a class="who" data-ep="ep-5-4-20">Андрей Саенко</a>, <a class="who" data-ep="ep-5-4-23">Богдан Ильков</a>. Илькова ранили в спину. Пуля из его тела выпущена из автомата, закреплённого за бойцом спецроты.</p>
+      <p><a class="who" data-ep="ep-5-4-22">Виталий Коцюба</a> убит у столба лицом к Консерватории, позиции спецроты были далеко слева. Здесь выстрел со стороны Майдана вероятнее. Где ранен <a class="who" data-ep="ep-5-4-127">Алексей Братушка</a>, суд не установил.</p>
+      <div class="kat"><b>Качановский утверждает</b><p class="kc">Илькова и Саенко убили из гостиницы: на это, по его словам, указывают крутые каналы ран.</p><b class="kr">Что показывает проверка (Claude)</b><p>В обоих телах — пули из стволов спецроты. Но у Саенко суд сам признал, что поза исключает выстрел со стороны дворца, и это противоречие не снято.</p></div>
+    </div></div>
+  </div>
+</section>
+
+<section class="board" aria-label="Кадры 09:17:32 и 09:17:34"><div class="board-in full">
+  <div class="frames two"><figure class="frame"><img src="img/g29a.webp" alt="Бойцы спецроты у угла дворца целятся влево" width="450" height="300" loading="lazy"><span class="tc">09:17:32</span></figure><figure class="frame"><img src="img/g29b.webp" alt="Та же группа через две секунды; жёлтые повязки на рукавах" width="450" height="300" loading="lazy"><span class="tc">09:17:34</span></figure></div>
+  <div class="bcap wide-cap"><div class="bt">09:17</div><p>Группа спецроты у угла Октябрьского дворца, две секунды из записи CNN. Двое целятся горизонтально влево, на рукавах читаются жёлтые повязки. Рядом человек в синеватом пятнистом камуфляже. В эти же минуты на площадке перед дворцом гибнут Пехенько, Аксенин и Мойсей.</p><span class="bsrc">Кадры: CNN, из многоэкранной реконструкции «Висота»</span></div>
+</div></section>
+
+<!-- ======================= АКТ II ======================= -->
+<section class="scrolly" id="act2" aria-label="09:15–09:30, дворец и аллея">
+  <div class="stage"><div class="stage-in">
+    <div class="act-t"><span class="kick">Часть вторая · 09:15 — 09:30</span><h2>Дворец и аллея</h2></div>
+    <div class="clock"><b class="clk">09:15</b><span>погибших протестующих: <i class="cnt">9</i> из 48</span></div>
+    <svg class="street" viewBox="0 70 1000 400" role="img" aria-label="Профиль улицы Институтской; квадраты — погибшие"></svg>
+  </div></div>
+  <div class="steps">
+    <div class="step" id="st-0915" data-t="33360" data-front=".27" data-fd="4" data-arrow="h4"><div class="box">
+      <span class="t">09:15 — 09:16</span><b class="h">Убит боец спецроты</b>
+      <p>У ступеней со стороны Крещатика активист с охотничьим ружьём стреляет по площадке у дворца. Суд пишет, что эти выстрелы совпадают по времени с ранениями двух бойцов спецроты; один из них погиб.</p>
+      <p>Примерно с 09:17 заместитель командира полка и командир спецроты, по выводу суда, приказывают стрелять уже «на ураження» <span class="uq-tr" lang="ru" data-uq="491">(на поражение)</span> по скоплению людей, чтобы остановить их. Спецрота отходит вверх по аллее.</p>
+    </div></div>
+    <div class="step" id="st-0916" data-t="33542" data-front=".40" data-fd="4" data-hl="Пехенько,Аксенин,Мойсей,Тарасюк"><div class="box">
+      <span class="t">09:16 — 09:19</span><b class="h">Площадка перед дворцом</b>
+      <p>Протестующие выходят на площадку, которую только что оставила спецрота. Убиты <a class="who" data-ep="ep-5-4-28">Василий Аксенин</a>, <a class="who" data-ep="ep-5-4-32">Василий Мойсей</a>, <a class="who" data-ep="ep-5-4-34">Иван Тарасюк</a>. По выводу суда, в них стреляли силовики.</p>
+      <p>У <a class="who" data-ep="ep-5-4-27">Игоря Пехенько</a> суд не исключил выстрел из гостиницы «Украина»: она прямо через улицу, а рана идёт справа налево и сверху вниз.</p>
+      <div class="kat"><b>Качановский утверждает</b><p class="kc">Пехенько, Мойсея и Тарасюка убили круто сверху, со значительной высоты.</p><b class="kr">Что показывает проверка (Claude)</b><p>По Пехенько довод совпадает с сомнением суда. По Тарасюку Качановский не упоминает рикошет, который установила экспертиза.</p></div>
+    </div></div>
+    <div class="step" id="st-0920" data-t="34203" data-front=".66" data-fd="4" data-hl="Мовчан,Дмитрив,Дигдалович,Войтович,Бльок,Байдовский,Кемский,Дзявульский,Опанасюк,Корнеев,Бондарчук,Костенко,Щербанюк"><div class="box">
+      <span class="t">09:20 — 09:30</span><b class="h">Под огнём снежной баррикады: тринадцать смертей</b>
+      <p>Спецрота уходит за груду мусора и мешков напротив метро. К ней присоединяются люди в чёрном без жёлтых повязок, некоторые со снайперскими винтовками. Протестующие поднимаются по аллее со щитами, многие — чтобы вынести раненых. Тринадцать человек гибнут на аллее, на площадке у дворца и напротив, на тротуаре у гостиницы.</p>
+      <p>У <a class="who" data-ep="ep-5-4-62">Николая Дзявульского</a> две пули из двух автоматов двух бойцов спецроты. <a class="who" data-ep="ep-5-4-50">Ивана Бльока</a> убили не из автомата спецроты: вероятнее, другие силовики, например снайперы без повязок, бывшие рядом со спецротой. У <a class="who" data-ep="ep-5-4-69">Игоря Костенко</a> поза за секунды до ранения и рана, по расчёту Claude, указывают вниз по улице, к стороне Майдана; суд стрелка не установил.</p>
+    </div></div>
+  </div>
+</section>
+
+<section class="board" aria-label="Кадры 09:19–09:20"><div class="board-in full">
+  <div class="frames three"><figure class="frame"><img src="img/g22.webp" alt="Снайпер в чёрном лежит на аллее с винтовкой на сошках" width="632" height="348" loading="lazy"><span class="tc">09:19:18</span></figure><figure class="frame"><img src="img/g23.webp" alt="Снайпер в чёрном и балаклаве на колене у парапета" width="441" height="255" loading="lazy"><span class="tc">09:20:06</span></figure><figure class="frame"><img src="img/g24.webp" alt="Боец в чёрном с автоматом и жёлтой повязкой на рукаве" width="446" height="251" loading="lazy"><span class="tc">09:20:11</span></figure></div>
+  <div class="bcap wide-cap"><div class="bt">09:19–20</div><p>Аллея у дворца, один и тот же снайпер в чёрном на двух записях: лёжа с винтовкой на сошках, через минуту на колене у парапета, затем уходит вправо за бойцом спецроты с жёлтой повязкой. Claude сверил записи «Висоты»: в 09:19:40 он встаёт и отбегает назад, в 09:19:54 уже стоит на колене чуть сзади, в 09:20:02 его видно на второй записи. Чей он, суд не установил. Командиру «Омеги» в суде показали видео с лежащим снайпером рядом со спецротой: винтовку он назвал «скорее всего» винтовкой с поворотно-скользящим затвором (так в машинной расшифровке заседания), форму — похожей по цвету на форму своего отряда, а человека опознать не смог. Тот же ли это момент, что на этих кадрах, не доказано. Из оружия рядом со спецротой в эти минуты к такому описанию подходит винтовка C.TSM .308 второго снайпера из пары «Омеги», приданной внутренним войскам. Поэтому, по оценке Claude, это вероятно он (около 75%); суд этого не устанавливал.</p><span class="bsrc">Кадры: многоэкранная реконструкция «Висота»</span></div>
+</div></section>
+
+<!-- ======================= АКТ III ======================= -->
+<section class="scrolly" id="act3" aria-label="09:30–09:49, бетонная баррикада">
+  <div class="stage"><div class="stage-in">
+    <div class="act-t"><span class="kick">Часть третья · 09:30 — 09:49</span><h2>Баррикада</h2></div>
+    <div class="clock"><b class="clk">09:30</b><span>погибших протестующих: <i class="cnt">26</i> из 48</span></div>
+    <svg class="street" viewBox="0 70 1000 400" role="img" aria-label="Профиль улицы Институтской; квадраты — погибшие"></svg>
+  </div></div>
+  <div class="steps">
+    <div class="step" id="st-0930" data-t="34203" data-front=".80" data-fd="4"><div class="box">
+      <span class="t">09:30</span><b class="h">Бетонная стена</b>
+      <p>Силовики отходят за бетонные блоки у Ольгинской. Между блоками — грузовики, в проходе БТР. До людей у банка «Аркада» и метро отсюда 60–165 метров, и стоит баррикада на 5–7 метров выше. Огонь из-за неё суд описывает как «висунення голови стрілка лише в необхідних межах» <span class="uq-tr" lang="ru" data-uq="76">(выдвижение головы стрелка лишь в необходимых пределах)</span>.</p>
+      <p>Протестующие остаются ниже, за парапетом «Аркады», за деревьями и щитами. Многие выходят, чтобы вынести раненых.</p>
+    </div></div>
+    <div class="step" id="st-0943" data-t="35084" data-front=".80" data-fd="4" data-hl="Ушневич,Жеребный" data-arrow="hotel"><div class="box">
+      <span class="t">09:43 — 09:44</span><b class="h">Выстрелы со стороны гостиницы</b>
+      <p>С 09:41 люди у парапета банка «Аркада» и на снежной баррикаде снова попадают под огонь. Две смерти здесь суд отнёс не к силовикам. <a class="who" data-ep="ep-5-4-74">Олег Ушневич</a> и <a class="who" data-ep="ep-5-4-83">Владимир Жеребный</a> убиты, по его выводу, выстрелами со стороны гостиницы «Украина», с территории, которую силовики не контролировали. Кто стрелял, не установлено. По Ушневичу следствие ведёт и другую линию — пистолет офицера «Омеги»; суд её не принял.</p>
+      <p>Это самые сильные эпизоды в пользу версии Качановского, и признал их сам суд. В ту же минуту по этой площадке стреляла и баррикада.</p>
+    </div></div>
+    <div class="step" id="st-0941" data-t="35357" data-front=".80" data-fd="4" data-hl="Гриневич,Ушневич,Жаловага,Жеребный,Вареница,Точин,Паращук,Ткачук,Зубенко"><div class="box">
+      <span class="t">09:41 — 09:49</span><b class="h">Девять человек за восемь минут</b>
+      <p>По большинству этих смертей суд нашёл на видео дым или звук выстрела с бетонной баррикады в ту же секунду, когда человек падает. У <a class="who" data-ep="ep-5-4-78">Анатолия Жаловаги</a> и <a class="who" data-ep="ep-5-4-85">Романа Вареницы</a> пули из тел совпали с автоматами спецроты.</p>
+    </div></div>
+      </div>
+</section>
+
+<section class="board" aria-label="Кадр 09:47:09"><div class="board-in rev">
+  <div class="frames one"><figure class="frame small"><img src="img/g30.webp" alt="Бойцы с повязками на рукавах за синим кузовом грузовика у бетонной баррикады" width="715" height="535" loading="lazy"><span class="tc">09:47:09</span></figure></div>
+  <div class="bcap"><div class="bt">09:47:09</div><p>Бетонная баррикада. Бойцы за синим кузовом грузовика, повязки на рукавах. Через две секунды ниже по улице, у парапета «Аркады», падает Роман Точин; суд нашёл на записи дым выстрела с баррикады за два деления таймера до попадания.</p><span class="bsrc">Кадр: многоэкранная реконструкция «Висота»</span></div>
+</div></section>
+
+<section class="scrolly" id="act3b" aria-label="09:54–16:50, у метро и после затишья">
+  <div class="stage"><div class="stage-in">
+    <div class="act-t"><span class="kick">Часть третья, продолжение · 09:54 — 16:50</span><h2>У метро</h2></div>
+    <div class="clock"><b class="clk">09:49</b><span>погибших протестующих: <i class="cnt">35</i> из 48</span></div>
+    <svg class="street" viewBox="0 70 1000 400" role="img" aria-label="Профиль улицы Институтской; квадраты — погибшие"></svg>
+  </div></div>
+  <div class="steps">
+    <div class="step" id="st-0954" data-t="36444" data-front=".80" data-fd="4" data-hl="Голоднюк,Пантелеев,Гурик,Котляр,Панькив"><div class="box">
+      <span class="t">09:54 — 10:07</span><b class="h">У входа в метро</b>
+      <p><a class="who" data-ep="ep-5-4-95">Ивана Пантелеева</a> смертельно ранили в грудь пулей 7,62×54R. Это винтовочный патрон, к автоматам спецроты он не подходит. Перед этим видео долго показывает среди бойцов на баррикаде человека без повязки со снайперской винтовкой этого калибра.</p>
+      <p>У <a class="who" data-ep="ep-5-4-96">Романа Гурика</a> и <a class="who" data-ep="ep-5-4-97">Евгения Котляра</a> на видео видны выстрелы с баррикады в ту же секунду. У <a class="who" data-ep="ep-5-4-101">Николая-Олега Панькива</a> пуля из тела совпала с автоматом бойца спецроты.</p>
+      <div class="kat"><b>Качановский утверждает</b><p class="kc">Пантелеева убили пулей для винтовки Мосина, а такого оружия у силовиков не было.</p><b class="kr">Что показывает проверка (Claude)</b><p>Тем же патроном 7,62×54R стреляет и снайперская винтовка СВД, а человек с такой винтовкой стоял на баррикаде силовиков.</p></div>
+    </div></div>
+    <div class="step" id="st-1020" data-t="37910" data-front=".80" data-fd="4" data-hl="Полянский,Царёк,Чаплинский,Чмиленко,Шилинг"><div class="box">
+      <span class="t">10:20 — 10:31</span><b class="h">Последние минуты боя</b>
+      <p>Гибнут ещё пятеро. <a class="who" data-ep="ep-5-4-107">Леонида Полянского</a> убили у мостика возле торгового центра «Глобус», далеко от линии столкновения; пуля — из автомата, закреплённого за командиром спецроты. У <a class="who" data-ep="ep-5-4-116">Виктора Чмиленко</a> калибр не установлен: суд не исключил других силовиков с оружием иного калибра, чем у спецроты.</p>
+      <p>В 10:31:50 стрельба стихает.</p>
+      <div class="kat"><b>Качановский утверждает</b><p class="kc">Чмиленко убит охотничьей пулей .30-06, а такого оружия у силовиков не было.</p><b class="kr">Что показывает проверка (Claude)</b><p>Эксперты написали лишь, что носик пули калибра 7,62 мм «приблизительно» соответствует .30-06 — американскому винтовочному патрону; суд калибр установленным не счёл. Патрон .308 (7,62×51) — другой, но пуля у него того же диаметра, и по носику их не различить. Винтовки .308 у силовиков были (у снайперов «Омеги» и СБУ). Значит, стреляли, вероятно, из винтовки, а не из автомата спецроты, но на сторону стрелка калибр не указывает.</p></div>
+    </div></div>
+    <div class="step" id="st-1128" data-t="99999" data-front=".80" data-fd="4" data-hl="Храпаченко,Смоленский,Мельничук"><div class="box">
+      <span class="t">11:28 — 16:50</span><b class="h">После затишья</b>
+      <p><a class="who" data-ep="ep-5-4-121">Александр Храпаченко</a> убит прицельным выстрелом со стороны правительственного квартала; экспертиза следствия 2018 года связала фрагмент пули с винтовкой снайпера «Омеги», в суде её не проверяли. <a class="who" data-ep="ep-5-4-122">Виталий Смоленский</a> убит на самом Майдане пулей из автомата спецроты; суд при этом сам усомнился, простреливалось ли это место с баррикады.</p>
+      <p><a class="who" data-ep="ep-5-4-125">Владимир Мельничук</a> убит в 16:50. Камера Нацбанка фиксирует выстрел бойца спецроты в ту же секунду, если верна синхронизация «Висоты», но суд признал, что прицельно попасть в него можно было из гостиницы, а с баррикады — нет.</p>
+      <div class="kat"><b>Качановский утверждает</b><p class="kc">Мельничука убили из гостиницы: на неё указывали жена (по звуку), очевидцы и, по его данным, судмедэксперт.</p><b class="kr">Что показывает проверка (Claude)</b><p>Мнение специалиста на эксперименте суд не принял. Но здесь довод весомый, и Claude относит этот эпизод к спорным.</p></div>
+    </div></div>
+  </div>
+</section>
+
+
+
+<article>
+<section class="sec wrap" id="weigh"><div class="col">
+  <div class="kick">Метод</div>
+  <h2>Как Claude взвешивает одну смерть</h2>
+  <p>Ни одно доказательство в этом деле не отвечает на вопрос «кто убил» целиком. Каждое закрывает свою часть, и сила вывода зависит от того, сколько частей сходятся.</p>
+  <div class="lens">
+    <div>
+      <svg viewBox="0 0 160 90" aria-hidden="true"><rect class="ic" x="6" y="10" width="148" height="70"/><text class="icf" x="16" y="30" font-family="IBM Plex Mono, monospace" font-size="15">09:47:11</text><circle class="icr" cx="118" cy="52" r="10"/><path class="icr" d="M118 38v-6M118 72v-6M104 52h-6M138 52h-6"/></svg>
+      <b>Видео: кто стрелял в эту секунду</b>
+      <p>Десятки записей сведены к одним часам. Если боец стреляет в ту же секунду, когда человек падает, это сильная связь. Куда летит пуля, видео не показывает.</p>
+    </div>
+    <div>
+      <svg viewBox="0 0 160 90" aria-hidden="true"><circle class="ic" cx="80" cy="22" r="10"/><path class="ic" d="M80 32v32M64 44h32M80 64l-12 20M80 64l12 20"/><path class="icr" d="M20 16L74 40" stroke-dasharray="4 4"/><path class="icr" d="M74 40l-9-1M74 40l-5-7"/></svg>
+      <b>Рана и поза: откуда пришёл выстрел</b>
+      <p>Канал раны и то, как человек стоял, дают направление. Если сзади только Майдан, а впереди только силовики, направление почти решает дело. Рикошет и неизвестная поза его ломают.</p>
+    </div>
+    <div>
+      <svg viewBox="0 0 160 90" aria-hidden="true"><path class="ic" d="M12 45h58c10 0 18 5 22 10-4 5-12 10-22 10H12z"/><path class="ic" d="M30 45v20"/><path class="ic" d="M104 55h18"/><path class="icr" d="M126 40h28v30h-28z"/><text class="icf" x="131" y="60" font-family="IBM Plex Mono, monospace" font-size="12">АК</text></svg>
+      <b>Пуля: из какого ствола</b>
+      <p>Только пуля привязывает смерть к конкретному оружию: экспертиза сравнивает следы нарезов с отстрелом автоматов. Это единственный способ назвать не сторону, а ствол.</p>
+    </div>
+  </div>
+  <p style="margin-top:1.4em">Вот как это работает на трёх смертях из одного утра. В первой все три линии сходятся, во второй они указывают на сторону Майдана, в третьей не сходятся вовсе.</p>
+</div>
+<div class="wide"><div class="cases">
+  <div class="case">
+    <h4>Роман Вареница<small>09:46:22 · у «Аркады»</small></h4>
+    <dl>
+      <dt><span class="mk y">✓</span>Видео</dt><dd>Дым выстрела «второго слева» на бетонной баррикаде — за кадр до попадания.</dd>
+      <dt><span class="mk y">✓</span>Рана</dt><dd>Пуля прошла дерево и щит; отверстие в дереве направлено на блоки, траектория совпадает с обоими каналами.</dd>
+      <dt><span class="mk y">✓</span>Пуля</dt><dd>Из автомата спецроты. Из того же автомата, по выводу суда, за полторы минуты до этого ранили человека из эвакуационной группы.</dd>
+    </dl>
+    <div class="res"><div class="sbar"><i style="width:92%;background:var(--rsp)"></i><i style="width:3%;background:var(--oth)"></i><i style="width:5%;background:var(--mai)"></i></div><b>Спецрота: 92%</b> <span><span class="nw">· другие силовики 3</span> <span class="nw">· Майдан 5</span></span></div>
+  </div>
+  <div class="case">
+    <h4>Владимир Жеребный<small>09:44:44 · у «Аркады»</small></h4>
+    <dl>
+      <dt><span class="mk p">◐</span>Видео</dt><dd>Поза в момент ранения видна. В ту же минуту по площадке стреляла и баррикада.</dd>
+      <dt><span class="mk y">✓</span>Рана</dt><dd>Вход слева, канал круто сверху вниз, преграды нет. Суд: выстрел с направления гостиницы, версия баррикады «спростована» <span class="uq-tr" lang="ru" data-uq="144">(опровергнута)</span>.</dd>
+      <dt><span class="mk n">—</span>Пуля</dt><dd>Привязки к оружию нет.</dd>
+    </dl>
+    <div class="res"><div class="sbar"><i style="width:8%;background:var(--rsp)"></i><i style="width:7%;background:var(--oth)"></i><i style="width:85%;background:var(--mai)"></i></div><b>Сторона Майдана: 85%</b> <span><span class="nw">· спецрота 8</span> <span class="nw">· другие силовики 7</span></span></div>
+  </div>
+  <div class="case">
+    <h4>Богдан Вайда<small>09:00:37 · у водомёта</small></h4>
+    <dl>
+      <dt><span class="mk p">◐</span>Видео</dt><dd>Отходящие силовики стреляли рядом из помповых ружей примерно за минуту до этого. Самого выстрела не видно.</dd>
+      <dt><span class="mk p">◐</span>Рана</dt><dd>Картечь в висок сзади-слева, сильно деформирована. Не исключён рикошет от кабины водомёта, по которой, возможно, стреляли со стороны протестующих.</dd>
+      <dt><span class="mk n">—</span>Пуля</dt><dd>Картечь к конкретному ружью не привязать.</dd>
+    </dl>
+    <div class="res"><div class="sbar"><i style="width:3%;background:var(--rsp)"></i><i style="width:49%;background:var(--oth)"></i><i style="width:48%;background:var(--mai)"></i></div><b>Трудно сказать</b> <span><span class="nw">· спецрота 3</span> <span class="nw">· другие силовики 49</span> <span class="nw">· Майдан 48</span> <span class="nw">(силовики вместе 52)</span></span></div>
+  </div>
+</div></div>
+<div class="col">
+  <p style="margin-top:1.6em">Поэтому баллистика здесь так важна. В 12 из 48 смертей пуля из тела или одежды погибшего совпала с автоматом спецроты (в двух случаях её нашли в одежде; в трёх автомат был закреплён за бойцом, которого в тот момент на месте не было, — стрелял кто-то другой).</p>
+  <div class="grid48" id="g48" aria-label="48 погибших; отмечены 12, у которых пуля совпала с автоматом спецроты"></div>
+  <p class="cap">Каждая клетка — один погибший, в порядке времени гибели. Красные с точкой — пуля из тела совпала с автоматом спецроты.</p>
+  <p style="margin-top:1.2em">У этой базы есть слабые места, и Качановский бьёт именно в них. Часть вещественных доказательств утрачена или исключена, автоматы спецроты распилены, у ряда пуль сомнительна цепочка хранения. Поэтому даже эпизоды с прямой баллистикой Claude оценивает не выше 92% в пользу спецроты. В остальных 36 случаях вывод держится на видео, ранах и групповых выводах суда: суд относил смерть к спецроте вместе с другими силовиками, если выстрел шёл с их территории в минуты их огня.</p>
+</div></section>
+
+<section class="firemap wrap" id="fire"><div class="wide">
+  <div class="kick">Обе стороны</div>
+  <h2>Кто откуда стрелял</h2>
+  <p style="max-width:660px">Огонь в то утро вели обе стороны. На профиле улицы отмечены места, откуда стреляли, по материалам дела: синим — со стороны Майдана, красным и оранжевым — силовики. Для каждого указано, что известно и насколько твёрдо.</p>
+  <p class="fmhint" aria-hidden="true">Карта шире экрана — листайте вбок →</p>
+  <div class="fmscroll"><svg class="street" id="firesvg" viewBox="0 125 1080 345" role="img" aria-label="Позиции стрелков обеих сторон на профиле Институтской"></svg></div>
+  <div class="fmleg" aria-hidden="true"><span><i style="background:var(--mai);border-radius:50%"></i>синий кружок — сторона Майдана</span><span><i style="background:var(--rsp)"></i>красный — спецрота «Беркута»</span><span><i style="background:var(--oth)"></i>оранжевый — другие силовики</span></div>
+  <div class="fm-list">
+    <div><h3>Сторона Майдана</h3><ol>
+      <li><span class="num m">1</span><div>Консерватория, 05:30 — 09:00<small>Видео: выстрелы «із-за колон Консерваторії в бік правоохоронців» <span class="uq-tr" lang="ru" data-uq="69">(из-за колонн Консерватории в сторону правоохранителей)</span>. Огонь по силовикам с 5:30 суд счёл доказанным (Консерватория — один из источников): к 9:00 трое убиты, 39 ранены.</small></div></li>
+      <li><span class="num m">2</span><div>Баррикады у Стелы, утро<small>Видео: обстрел силовиков картечью, человек заряжает охотничье ружьё в 08:37.</small></div></li>
+      <li><span class="num m">3</span><div>Ступени и мостик, 09:06 — 09:16<small>Четверо стрелков с ружьями и пистолетом. Выстрелы одного из них по времени совпали с ранениями двух бойцов спецроты, один погиб.</small></div></li>
+      <li><span class="num m">4</span><div>Вооружённые в группах на аллее, 09:16 — 09:30<small>Не менее трёх вооружённых идут вверх; в 09:24 человек «стріляє з мисливської рушниці в бік правоохоронців через спини активістів» <span class="uq-tr" lang="ru" data-uq="75">(стреляет из охотничьего ружья в сторону правоохранителей через спины активистов)</span>.</small></div></li>
+      <li><span class="num m">5</span><div>Гостиница «Украина», утро<small>Суд: в гостинице были люди с оружием; из номера 1116 стреляли в сторону баррикад, время неизвестно. Направление гостиницы — в смертях Ушневича и Жеребного.</small></div></li>
+    </ol></div>
+    <div><h3>Силовики</h3><ol>
+      <li><span class="num o">A</span><div>Группа с зелёными метками, 08:55 — 09:12<small>17 бойцов стреляют из-за парапета, почти все — из помповых ружей; суд установил выстрел этой группы в Арутюняна.</small></div></li>
+      <li><span class="num f">B</span><div>Спецрота у дворца, 09:03 — 09:16<small>Огонь из автоматов по приказу заместителя командира полка. Четыре смерти до 09:17 суд вменил лично ему как причинённые по неосторожности.</small></div></li>
+      <li><span class="num f">C</span><div>Снежная баррикада, 09:20 — 09:30<small>Спецрота и люди в чёрном без повязок, в том числе со снайперскими винтовками.</small></div></li>
+      <li><span class="num f">D</span><div>Бетонная баррикада, с 09:30<small>Спецрота, приданные снайперы и пулемётчик, отряд внутренних войск. Найдены гильзы 5,45 и 7,62×54R, не только от автоматов спецроты.</small></div></li>
+      <li><span class="num o">E</span><div>Правительственный квартал, после 11:00<small>Основной отряд «Омеги» у клуба Кабмина. На подоконниках 2-го этажа клуба — следы упоров винтовок; кто и когда там стоял, не установлено. Экспертиза следствия 2018 года связала фрагмент пули Храпаченко с винтовкой одного из снайперов «Омеги»; в суде её не проверяли.</small></div></li>
+    </ol></div>
+  </div>
+</div></section>
+
+<section class="sec wrap" id="maidan"><div class="col">
+  <div class="kick">Другая сторона</div>
+  <h2>Сколько жизней мог унести огонь со стороны Майдана</h2>
+  <p>Ни одного из стрелков со стороны Майдана суд не установил по имени. Он описывает их как группы и роли и отмечает, что со сцены выстрелы по силовикам «взагалі ніяк не коментувалися» <span class="uq-tr" lang="ru" data-uq="29">(вообще никак не комментировались)</span>, а контроля над вооружёнными передовыми группами не было.</p>
+  <p>По оценке Claude, этот огонь вероятнее всего унёс жизни около девяти протестующих из 48, разумный разброс — от 5 до 16. Около трёх из этих девяти дают четыре эпизода, где сторона Майдана вероятнее, около двух — четыре эпизода «трудно сказать», остальное разложено малыми долями по другим эпизодам. Прямым признаком стрельбы со стороны Майдана подкреплены около 5,4 из девяти; остальное — запас на возможные ошибки экспертиз.</p>
+  <p>Важнее другой вопрос: были ли это случайные попадания или выстрелы именно в своих. Намерение стрелка не установлено ни в одном эпизоде. Если разложить эти девять смертей по самым вероятным механизмам, получается так:</p>
+  <div class="ib" aria-hidden="true"><i style="width:40%;background:#7aa3d6">случайно ≈3,5</i><i style="width:20%;background:#4f86c9">по ошибке ≈1,9</i><i style="width:40%;background:#24508f">именно в протестующего ≈3,6</i></div>
+  <div class="ibl"><span><i style="background:#7aa3d6"></i>промах, рикошет, перекрёстный огонь <b class="n">≈3,5</b></span><span><i style="background:#4f86c9"></i>ошибка в опознании <b class="n">≈1,9</b></span><span><i style="background:#24508f"></i>выстрел в протестующего <b class="n">≈3,6</b></span></div>
+  <p style="margin-top:1.2em">Ни в одном эпизоде последняя версия не набирает больше половины: самая высокая — у Жеребного, 46%. Вероятность, что хотя бы одно такое убийство было, Claude оценивает широко: от 46 до 91%.</p>
+  <p>Если такие выстрелы были, кто мог за ними стоять? Ни одна версия не опирается на установленного стрелка, поэтому это доли одной неопределённости, а не находки.</p>
+  <div class="vers">
+    <div><span>Малая самостоятельная группа или одиночки</span><span class="t"><i style="width:60%"></i></span><b>≈60%</b></div>
+    <div><span>Провокация с ведома части руководства или полевых командиров Майдана</span><span class="t"><i style="width:20%"></i></span><b>≈20%</b></div>
+    <div><span>Провокация силовиков изнутри</span><span class="t"><i style="width:10%"></i></span><b>≈10%</b></div>
+    <div><span>Российский след</span><span class="t"><i style="width:3%"></i></span><b>≈3%</b></div>
+  </div>
+</div></section>
+
+<section class="sec wrap" id="order" style="border-top:1px solid var(--rule)"><div class="col">
+  <div class="kick">Ответственность</div>
+  <h2>Кто дал приказ силовикам стрелять на поражение</h2>
+  <p>Кто стрелял — один вопрос. Кто велел стрелять — другой. Суд прошёл по цепочке приказов, и в ней есть разрыв.</p>
+  <ol class="chain">
+    <li class="q"><span class="dot"></span><span class="when">с 2015 года</span><b>Президент → министр и руководители силовых ведомств → ГУМВД → командир полка → спецрота</b><p>Такую цепочку излагает обвинение. Ни один суд не проверил её по существу.</p><span class="pill q">утверждает обвинение</span></li>
+    <li><span class="dot"></span><span class="when">18 февраля</span><b>Министр внутренних дел, глава СБУ и другие решают использовать полномочия на применение оружия</b><p>Речь о полномочиях силовиков вообще, не о стрельбе 20 февраля.</p><span class="pill">доказано судом</span></li>
+    <li class="gap"><span class="dot"></span><span class="when">18 февраля, около 16:00</span><b>Командир полка «по указанию руководства» приказывает вооружить спецроту</b><p>Кто именно из руководства дал указание и какое, в приговоре не сказано.</p><span class="pill">доказано судом</span></li>
+  </ol>
+  <div class="chain"><span class="break">Разрыв: кто приказал стрелять 20 февраля выше уровня полка, не установлено</span></div>
+  <ol class="chain">
+    <li><span class="dot"></span><span class="when">20 февраля, около 09:05</span><b>Заместитель командира полка — неизбирательный огонь из автоматов</b><p>Решение он, по выводу суда, принял сам: цель — вывести силовиков из дворца, способ — «явно злочинний» <span class="uq-tr" lang="ru" data-uq="594">(явно преступный)</span>.</p><span class="pill">доказано судом</span></li>
+    <li><span class="dot"></span><span class="when">около 09:17</span><b>Он же и командир спецроты — огонь «на ураження» <span class="uq-tr" lang="ru" data-uq="491">(на поражение)</span> по скоплению людей</b><p>После гибели бойца роты. Огонь продолжался и тогда, когда люди отходили с ранеными.</p><span class="pill">доказано судом</span></li>
+  </ol>
+  <p>Командира полка и командира спецроты позже осудили заочно, но за вынос и уничтожение оружия, а не за стрельбу 20 февраля; по ней их дела не решены. Вывод о приказе 09:17 для командира спецроты сделан в чужом процессе, без его защиты.</p>
+</div></section>
+
+<section class="sec wrap" id="kat" style="border-top:1px solid var(--rule)"><div class="col">
+  <div class="kick">Спор</div>
+  <h2>В чём прав Качановский и где его версия не держится</h2>
+  <p>Тезис книги можно проверить числом. Он утверждает, что стрелки Майдана убили большинство или почти всех погибших; на 48 смертях 20 февраля это 25 и больше. Ниже то, что дают материалы дела, на той же шкале.</p>
+  <div class="kb" aria-label="Сравнение: тезис Качановского и оценки по материалам дела">
+    <div class="row"><div class="lab">Тезис Качановского <small>· большинство или почти все</small></div><div class="track"><i class="rangem" style="left:52%;width:48%"></i><em style="left:auto;right:48%;padding:0 8px 0 0">25–48</em></div></div>
+    <div class="row"><div class="lab">Если считать неверной всю доказательную базу суда сразу <small>· крайний случай</small></div><div class="track"><i style="left:0;width:43.75%;background:var(--mai);opacity:.45"></i><b style="left:43.75%"></b><em style="left:43.75%">≈21</em></div></div>
+    <div class="row"><div class="lab">Оценка Claude <small>· среднее и разброс в 9 из 10 вариантов</small></div><div class="track"><i style="left:10.4%;width:22.9%;background:var(--mai);opacity:.45"></i><b style="left:18.75%"></b><em style="left:33.3%">≈9 (5–16)</em></div></div>
+    <div class="row"><div class="lab">Суд прямо указал на сектор гостиницы</div><div class="track"><i style="left:0;width:4.2%;background:var(--mai)"></i><em style="left:4.2%">2</em></div></div>
+    <div class="axis"><span>0</span><span>12</span><span>24</span><span>36</span><span>48 смертей</span></div>
+  </div>
+  <p style="margin-top:1.4em">Поэтому полный тезис книги Claude оценивает как имеющий вероятность меньше 3%. Но отдельные её доводы верны.</p>
+  <div class="two">
+    <div><h3>Подтверждается</h3><ul>
+      <li>Со стороны Майдана стреляли. 20 февраля первыми огонь на поражение открыли, по оценке Claude, оттуда: с 5:30 по силовикам (сам этот огонь суд счёл доказанным).</li>
+      <li>Суд сам указал на гостиницу «Украина» в двух смертях, в третьей (Пехенько) её не исключил, а по Мельничуку признал, что прицельный выстрел был возможен только оттуда.</li>
+      <li>Следствие провело мало баллистики направлений, часть улик утрачена, автоматы уничтожены.</li>
+      <li>В шести эпизодах сторона Майдана, по оценке Claude, не менее вероятна, чем силовики.</li>
+    </ul></div>
+    <div><h3>Не подтверждается</h3><ul>
+      <li>В 12 смертях пули совпали с автоматами спецроты.</li>
+      <li>Примерно в десяти смертях суд по видео связал падение человека с выстрелом силовиков в ту же секунду; в шести — на одной и той же записи.</li>
+      <li>Многие «крутые» каналы ран, на которые он опирается, в принятых судом экспертизах идут иначе.</li>
+      <li>Оружие, которого «не было у силовиков», оказывается у них было: патрон 7,62×54R подходит к снайперской винтовке на баррикаде.</li>
+    </ul></div>
+  </div>
+</div></section>
+
+<section class="sec wrap" id="result" style="border-top:1px solid var(--rule)"><div class="col">
+  <div class="kick">Итог</div>
+  <h2>Сколько смертей на чьей стороне</h2>
+  <p>Если сложить оценки по всем 48 эпизодам и учесть, что доказательства могут ошибаться не поодиночке, а целыми блоками, получается такое ожидаемое распределение. Под числом — разброс, в который итог попадает в 9 из 10 вариантов.</p>
+  <div class="tally">
+    <div><div class="big" style="color:var(--rsp)">≈28</div><div class="lab">спецрота «Беркута»</div><div class="rng">от 18 до 33</div><div class="bar"><i style="left:37.5%;width:31.25%;background:var(--rsp)"></i><b style="left:58.4%;background:var(--rsp)"></b></div></div>
+    <div><div class="big" style="color:var(--oth)">≈11</div><div class="lab">другие силовики</div><div class="rng">от 7 до 16</div><div class="bar"><i style="left:14.6%;width:18.75%;background:var(--oth)"></i><b style="left:22.9%;background:var(--oth)"></b></div></div>
+    <div><div class="big" style="color:var(--mai)">≈9</div><div class="lab">сторона Майдана</div><div class="rng">от 5 до 16</div><div class="bar"><i style="left:10.4%;width:22.9%;background:var(--mai)"></i><b style="left:18.8%;background:var(--mai)"></b></div></div>
+  </div>
+  <p class="cap">Шкала каждой полосы — от 0 до 48 смертей. Сумма средних не обязана давать ровно 48 из-за округления.</p>
+  <p style="margin-top:1.4em">А если отвечать про каждого человека отдельно, картина такая:</p>
+  <p class="cap">≈28 — сумма долей по всем эпизодам; 34 — у скольких людей спецрота — самая вероятная версия. Цвет плашки — самая вероятная сторона; чем бледнее, тем меньше уверенность.</p>
+  <div class="units" id="units"></div>
+  <h3 style="margin-top:2.6em">Насколько это твёрдо</h3>
+  <p>Приговор не вступил в силу. Большинство смертей вменены подсудимым через групповые выводы, без пули по конкретному телу. Разброс итогов в основном задают два общих риска: что неверна сразу вся баллистическая база и что неверны сразу все групповые выводы суда. Свои значения этих рисков можно подставить в калькулятор в досье.</p>
+</div></section>
+
+<section class="sec wrap" id="open" style="border-top:1px solid var(--rule)"><div class="col">
+  <div class="kick">Что неизвестно</div>
+  <h2>Что остаётся открытым</h2>
+  <ol class="open">
+    <li>Пришёл ли приказ стрелять по людям 20 февраля выше уровня полка.</li>
+    <li>Кто именно стрелял со стороны Майдана, где стоял и в кого целился. Ни одного стрелка суд не назвал.</li>
+    <li>Кто из группы с зелёными метками убил Георгия Арутюняна. Обвинительный акт против командира севастопольской роты и двух бойцов передан в суд в октябре 2024 года; что с ним дальше, неизвестно.</li>
+    <li>Двенадцать спорных эпизодов, где данных мало или они тянут в разные стороны.</li>
+  </ol>
+  <p style="margin-top:1em">Многое решили бы сравнение пуль из тел с оружием активистов, допросы людей, бывших утром в гостинице и Консерватории, и расследование гибели силовиков, которая, по словам суда, осталась нерасследованной.</p>
+</div></section>
+</article>
+
+<section class="dossier wrap" id="dossier"><div class="col">
+  <div class="kick">Полный разбор</div>
+  <h2>Проверить каждую цифру</h2>
+  <p>Этот текст — короткая версия. Всё, на чём он стоит, собрано в досье: карточка на каждого из 48 погибших с ранами, видео, решением суда и доводами Качановского, метод подсчёта, калькулятор, кадры и источники.</p>
+  <ul>
+    <li>48 карточек погибших</li><li>Хронология 18–20 февраля</li><li>Баллистика и экспертизы</li><li>Кто где стоял</li><li>Разбор книги Качановского</li><li>Метод и калькулятор</li><li>Кадры и видео</li><li>Источники</li>
+  </ul>
+  <a class="go" href="dossier.ru.html">Открыть досье →</a>
+</div></section>
+
+<footer class="foot wrap"><div class="col"><p class="aidisc" style="margin:0 0 .8em">Подготовлено с помощью Claude — модели ИИ компании Anthropic. Anthropic не связана с этим проектом, не проверяла и не одобряла его.</p><p class="aidisc legal" style="margin:0 0 .8em;font-size:.9em;opacity:.8">Подсудимые, подозреваемые и рядовые сотрудники силовых структур названы только по роли, независимо от приговора; бывшие высшие должностные лица — по должности. Живые свидетели и раненые по имени не называются. Ничто на сайте не является установлением чьей-либо вины: это может сделать только суд. BBC, CNN, Reuters, VRT, SITU Research и другие цитируются как источники; никто из них сайт не проверял и не одобрял. Цитаты из книги И. Качановского «The Maidan Massacre in Ukraine» (Palgrave Macmillan, 2024) приводятся по лицензии CC BY 4.0.</p>
+  Основа — приговор Святошинского районного суда Киева от 18.10.2023 по делу № 759/3498/15-к, книга И. Качановского «The Maidan Massacre in Ukraine» (Palgrave Macmillan, 2024), решения из реестра судебных решений, реконструкция «Висота» и другие видео. Время — по синхронизированным записям, на которые опирается суд. Оценки вероятностей подготовлены Claude по материалам дела и описаны в досье. Статус апелляции — на 6 октября 2026 года. Кадры: Jus Talionis, CNN и авторы реконструкции «Висота».
+</div></footer>
+
+<script id="sdata" type="application/json">{"E": [{"n": "Георгий Арутюнян", "s": "Арутюнян", "t": 32374, "tm": "08:59:34", "p": [1, 89, 10], "k": "oth", "top": 90, "z": "A", "id": "ep-5-4-4", "b": 0}, {"n": "Богдан Вайда", "s": "Вайда", "t": 32437, "tm": "09:00:37", "p": [3, 49, 48], "k": "hard", "top": 52, "z": "A", "id": "ep-5-4-8", "b": 0}, {"n": "Александр Балюк", "s": "Балюк", "t": 32520, "tm": "до 09:02", "p": [1, 52, 47], "k": "hard", "top": 53, "z": "A", "id": "ep-5-4-10", "b": 0}, {"n": "Максим Шимко", "s": "Шимко", "t": 32836, "tm": "09:07:16–46", "p": [79, 9, 12], "k": "rsp", "top": 88, "z": "A", "id": "ep-5-4-18", "b": 0}, {"n": "Богдан Сольчаник", "s": "Сольчаник", "t": 32895, "tm": "09:08:15", "p": [84, 5, 11], "k": "rsp", "top": 89, "z": "A", "id": "ep-5-4-19", "b": 0}, {"n": "Андрей Саенко", "s": "Саенко", "t": 32914, "tm": "09:08:34", "p": [85, 5, 10], "k": "rsp", "top": 90, "z": "A", "id": "ep-5-4-20", "b": 1}, {"n": "Виталий Коцюба", "s": "Коцюба", "t": 33011, "tm": "09:10:11", "p": [25, 14, 61], "k": "mai", "top": 61, "z": "A", "id": "ep-5-4-22", "b": 0}, {"n": "Богдан Ильков", "s": "Ильков", "t": 33115, "tm": "09:11:55", "p": [92, 3, 5], "k": "rsp", "top": 95, "z": "A", "id": "ep-5-4-23", "b": 1}, {"n": "Игорь Пехенько", "s": "Пехенько", "t": 33410, "tm": "09:16:50–09:18", "p": [33, 16, 51], "k": "hard", "top": 51, "z": "B1", "id": "ep-5-4-27", "b": 0}, {"n": "Василий Аксенин", "s": "Аксенин", "t": 33445, "tm": "09:17:25–50", "p": [62, 28, 10], "k": "rsp", "top": 90, "z": "B1", "id": "ep-5-4-28", "b": 0}, {"n": "Василий Мойсей", "s": "Мойсей", "t": 33460, "tm": "09:17:40–57", "p": [64, 24, 12], "k": "rsp", "top": 88, "z": "B1", "id": "ep-5-4-32", "b": 0}, {"n": "Иван Тарасюк", "s": "Тарасюк", "t": 33488, "tm": "09:18:08–09:19:02", "p": [75, 10, 15], "k": "rsp", "top": 85, "z": "B1", "id": "ep-5-4-34", "b": 0}, {"n": "Андрей Мовчан", "s": "Мовчан", "t": 33690, "tm": "09:21:30–09:30:03", "p": [37, 28, 35], "k": "rsp", "top": 65, "z": "B2", "id": "ep-5-4-37", "b": 0}, {"n": "Игорь Дмитрив", "s": "Дмитрив", "t": 33719, "tm": "09:21:59", "p": [89, 5, 6], "k": "rsp", "top": 94, "z": "B1", "id": "ep-5-4-38", "b": 1}, {"n": "Андрей Дигдалович", "s": "Дигдалович", "t": 33771, "tm": "09:22:51", "p": [54, 38, 8], "k": "rsp", "top": 92, "z": "B1", "id": "ep-5-4-39", "b": 0}, {"n": "Назарий Войтович", "s": "Войтович", "t": 33780, "tm": "09:23:00–09:26:45", "p": [39, 40, 21], "k": "oth", "top": 79, "z": "B2", "id": "ep-5-4-46", "b": 0}, {"n": "Иван Бльок", "s": "Бльок", "t": 33860, "tm": "09:24:20–09:29:36", "p": [11, 71, 18], "k": "oth", "top": 82, "z": "B2", "id": "ep-5-4-50", "b": 0}, {"n": "Сергей Байдовский", "s": "Байдовский", "t": 33888, "tm": "09:24:48", "p": [89, 5, 6], "k": "rsp", "top": 94, "z": "B2", "id": "ep-5-4-55", "b": 1}, {"n": "Сергей Кемский", "s": "Кемский", "t": 34112, "tm": "09:28:32–50", "p": [88, 6, 6], "k": "rsp", "top": 94, "z": "B2", "id": "ep-5-4-60", "b": 1}, {"n": "Николай Дзявульский", "s": "Дзявульский", "t": 34118, "tm": "09:28:38", "p": [91, 4, 5], "k": "rsp", "top": 95, "z": "B2", "id": "ep-5-4-62", "b": 1}, {"n": "Валерий Опанасюк", "s": "Опанасюк", "t": 34120, "tm": "09:28:40–48", "p": [57, 28, 15], "k": "rsp", "top": 85, "z": "B2", "id": "ep-5-4-63", "b": 0}, {"n": "Анатолий Корнеев", "s": "Корнеев", "t": 34161, "tm": "09:29:21", "p": [92, 3, 5], "k": "rsp", "top": 95, "z": "B2", "id": "ep-5-4-66", "b": 1}, {"n": "Сергей Бондарчук", "s": "Бондарчук", "t": 34167, "tm": "09:29:27–35", "p": [63, 25, 12], "k": "rsp", "top": 88, "z": "B1", "id": "ep-5-4-68", "b": 0}, {"n": "Игорь Костенко", "s": "Костенко", "t": 34169, "tm": "09:29:29–38", "p": [15, 15, 70], "k": "mai", "top": 70, "z": "B1", "id": "ep-5-4-69", "b": 0}, {"n": "Александр Щербанюк", "s": "Щербанюк", "t": 34177, "tm": "09:29:37", "p": [59, 28, 13], "k": "rsp", "top": 87, "z": "B2", "id": "ep-5-4-70", "b": 0}, {"n": "Эдуард Гриневич", "s": "Гриневич", "t": 34901, "tm": "09:41:41", "p": [82, 8, 10], "k": "rsp", "top": 90, "z": "SB", "id": "ep-5-4-72", "b": 0}, {"n": "Олег Ушневич", "s": "Ушневич", "t": 34994, "tm": "09:43:14–17", "p": [7, 21, 72], "k": "mai", "top": 72, "z": "V1", "id": "ep-5-4-74", "b": 0}, {"n": "Анатолий Жаловага", "s": "Жаловага", "t": 35024, "tm": "09:43:44", "p": [87, 8, 5], "k": "rsp", "top": 95, "z": "SB", "id": "ep-5-4-78", "b": 1}, {"n": "Владимир Жеребный", "s": "Жеребный", "t": 35084, "tm": "09:44:44", "p": [8, 7, 85], "k": "mai", "top": 85, "z": "V1", "id": "ep-5-4-83", "b": 0}, {"n": "Роман Вареница", "s": "Вареница", "t": 35182, "tm": "09:46:22", "p": [92, 3, 5], "k": "rsp", "top": 95, "z": "V1", "id": "ep-5-4-85", "b": 1}, {"n": "Роман Точин", "s": "Точин", "t": 35231, "tm": "09:47:11", "p": [82, 9, 9], "k": "rsp", "top": 91, "z": "V1", "id": "ep-5-4-86", "b": 0}, {"n": "Юрий Паращук", "s": "Паращук", "t": 35338, "tm": "09:48:58", "p": [77, 10, 13], "k": "rsp", "top": 87, "z": "V1", "id": "ep-5-4-87", "b": 0}, {"n": "Игорь Ткачук", "s": "Ткачук", "t": 35348, "tm": "09:49:08", "p": [82, 6, 12], "k": "rsp", "top": 88, "z": "V1", "id": "ep-5-4-89", "b": 0}, {"n": "Владислав Зубенко", "s": "Зубенко", "t": 35357, "tm": "09:49:17", "p": [79, 11, 10], "k": "rsp", "top": 90, "z": "V1", "id": "ep-5-4-90", "b": 0}, {"n": "Устим Голоднюк", "s": "Голоднюк", "t": 35676, "tm": "09:54:36", "p": [60, 33, 7], "k": "rsp", "top": 93, "z": "V2", "id": "ep-5-4-93", "b": 0}, {"n": "Иван Пантелеев", "s": "Пантелеев", "t": 35693, "tm": "09:54:53", "p": [20, 70, 10], "k": "oth", "top": 90, "z": "V2", "id": "ep-5-4-95", "b": 0}, {"n": "Роман Гурик", "s": "Гурик", "t": 35788, "tm": "09:56:28", "p": [79, 10, 11], "k": "rsp", "top": 89, "z": "V2", "id": "ep-5-4-96", "b": 0}, {"n": "Евгений Котляр", "s": "Котляр", "t": 35790, "tm": "09:56:30 и 09:56:36", "p": [80, 9, 11], "k": "rsp", "top": 89, "z": "V2", "id": "ep-5-4-97", "b": 0}, {"n": "Николай-Олег Панькив", "s": "Панькив", "t": 36444, "tm": "10:07:24", "p": [92, 4, 4], "k": "rsp", "top": 96, "z": "V2", "id": "ep-5-4-101", "b": 1}, {"n": "Леонид Полянский", "s": "Полянский", "t": 37200, "tm": "10:20–10:31", "p": [86, 7, 7], "k": "rsp", "top": 93, "z": "A", "id": "ep-5-4-107", "b": 1}, {"n": "Александр Царёк", "s": "Царёк", "t": 37260, "tm": "10:21:00–10:21:57", "p": [63, 26, 11], "k": "rsp", "top": 89, "z": "V2", "id": "ep-5-4-109", "b": 0}, {"n": "Владимир Чаплинский", "s": "Чаплинский", "t": 37608, "tm": "10:26:48", "p": [58, 34, 8], "k": "rsp", "top": 92, "z": "V2", "id": "ep-5-4-114", "b": 0}, {"n": "Виктор Чмиленко", "s": "Чмиленко", "t": 37717, "tm": "10:28:37", "p": [40, 50, 10], "k": "oth", "top": 90, "z": "V2", "id": "ep-5-4-116", "b": 0}, {"n": "Иосиф Шилинг", "s": "Шилинг", "t": 37723, "tm": "10:28:43", "p": [56, 33, 11], "k": "rsp", "top": 89, "z": "SB", "id": "ep-5-4-117", "b": 0}, {"n": "Александр Храпаченко", "s": "Храпаченко", "t": 41280, "tm": "≈11:28", "p": [4, 85, 11], "k": "oth", "top": 89, "z": "SB", "id": "ep-5-4-121", "b": 0}, {"n": "Виталий Смоленский", "s": "Смоленский", "t": 42162, "tm": "11:42:42–11:43:28", "p": [85, 6, 9], "k": "rsp", "top": 91, "z": "MAI", "id": "ep-5-4-122", "b": 1}, {"n": "Владимир Мельничук", "s": "Мельничук", "t": 60616, "tm": "16:50:16", "p": [58, 23, 19], "k": "rsp", "top": 81, "z": "B1", "id": "ep-5-4-125", "b": 0}, {"n": "Алексей Братушка", "s": "Братушка", "t": 33000, "tm": "≈09:10, место не установлено", "p": [29, 20, 51], "k": "hard", "top": 51, "z": "A", "id": "ep-5-4-127", "b": 0}], "ZX": {"MAI": 0.035, "A": 0.125, "B1": 0.275, "B2": 0.445, "V1": 0.585, "SB": 0.655, "V2": 0.725}}</script>
+<script>
+(function(){
+var S=JSON.parse(document.getElementById('sdata').textContent), E=S.E, ZX=S.ZX, DOS='dossier.ru.html';
+var NS='http://www.w3.org/2000/svg';
+function el(t,a,p){var e=document.createElementNS(NS,t);for(var k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+var X0=40,X1=975,BOT=392,TOP=300;
+function X(x){return X0+x*(X1-X0)}
+var PTS=[[0,169],[.125,169],[.6,182],[.8,187],[1,187.5]];
+function Y(x){var e=187.5;for(var i=0;i<PTS.length-1;i++){var a=PTS[i],b=PTS[i+1];if(x<=b[0]){e=a[1]+(b[1]-a[1])*(x-a[0])/(b[0]-a[0]);break}}return BOT-(e-169)/18.5*(BOT-TOP)}
+var col={rsp:'var(--rsp)',oth:'var(--oth)',mai:'var(--mai)',hard:'var(--hard)'};
+var KI={rsp:0,oth:1,mai:2};
+var KN={rsp:'спецрота «Беркута»',oth:'другие силовики',mai:'сторона Майдана',hard:'трудно сказать'};
+/* доля самого подразделения, которым окрашен квадрат */
+function share(o){return o.k=='hard'?Math.max(o.p[0]+o.p[1],o.p[2]):o.p[KI[o.k]]}
+/* ступени шкалы проекта: ≥85 почти наверняка · 65–84 вероятно · 56–64 скорее · <56 бледно */
+function lvl(o){var v=share(o);return v>=85?0:v>=65?1:v>=56?2:3}
+var OP=[1,.72,.5,.3],LV=['почти наверняка','вероятно','скорее','меньше 56% — неуверенно'];
+function op(o){return o.k=='hard'?1:OP[lvl(o)]}
+function verdict(o){
+  if(o.k=='hard')return 'Трудно сказать: ни одна сторона не набирает 56%';
+  var v=share(o),L=lvl(o);
+  return (L==3?'Вероятнее всего ':L==2?'Скорее ':L==1?'Вероятно ':'Почти наверняка ')+KN[o.k]+' — '+v+'%';
+}
+var SORT=E.slice().sort(function(a,b){return a.t-b.t});
+var MOB=function(){return window.innerWidth<700};
+var uid=0;
+function base(svg,isScene){
+  var id='hx'+(uid++),mob=isScene&&MOB(),SL=[];
+  var d=el('defs',{},svg),pt=el('pattern',{id:id,width:5,height:5,patternUnits:'userSpaceOnUse',patternTransform:'rotate(45)'},d);
+  el('rect',{width:5,height:5,fill:'#2a2f34'},pt);el('line',{x1:0,y1:0,x2:0,y2:5,stroke:'#a9b1b8','stroke-width':2.2},pt);
+  var gB=el('g',{},svg);
+  function bld(x0,x1,h,lab,ly,pr){var yb=Y((x0+x1)/2);el('rect',{x:X(x0),y:yb-h,width:X(x1)-X(x0),height:h,'class':'bld'},gB);if(lab){var t=el('text',{x:X((x0+x1)/2),y:ly||yb-h-8,'text-anchor':'middle','class':'lm'},gB);t.textContent=lab;SL.push({t:t,pr:pr})}}
+  bld(.005,.06,120,'Консерватория',0,20);
+  bld(.18,.36,215,mob?'гостиница «Украина»':'гостиница «Украина» (через улицу)',0,30);
+  bld(.22,.33,70,'Октябрьский дворец',Y(.275)-78,25);
+  bld(.55,.62,105,'«Аркада»',0,22);
+  bld(.86,.97,120,'Нацбанк',0,40);
+  for(var i=0;i<6;i++){el('line',{x1:X(.235+i*.017),x2:X(.235+i*.017),y1:Y(.275)-60,y2:Y(.275)-6,stroke:'#3d454c','stroke-width':2},gB)}
+  el('line',{x1:X(.07),x2:X(.07),y1:Y(.07)-150,y2:Y(.07),stroke:'#5b646c','stroke-width':4},gB);
+  var st=el('text',{x:X(.07)+8,y:Y(.07)-140,'class':'lm'},gB);st.textContent='Стела';SL.push({t:st,pr:45});
+  var dp='M'+X(0)+','+Y(0);for(var i=1;i<=100;i++)dp+=' L'+X(i/100).toFixed(1)+','+Y(i/100).toFixed(1);
+  el('path',{d:dp+' L'+X(1)+','+(BOT+70)+' L'+X(0)+','+(BOT+70)+'Z','class':'ground'},svg);
+  el('path',{d:dp,'class':'road'},svg);
+  el('path',{d:'M'+X(.095)+','+(Y(.1)-26)+' L'+X(.155)+','+(Y(.15)-26),stroke:'#7d868e','stroke-width':3},svg);
+  [[.665,16],[.8,30]].forEach(function(b){var y=Y(b[0]);el('rect',{x:X(b[0])-4,y:y-b[1],width:8,height:b[1],fill:'#b9c0c6'},svg)});
+  var ZL=[[.035,'Майдан',2],[.125,'мостик',3],[.275,'дворец · тротуар у гостиницы',4],[.445,'аллея',5],[.585,'у «Аркады»',8],[.665,'снежная',6],[.735,'метро',9],[.8,'бетонная',7]];
+  ZL.forEach(function(z,i){var t=el('text',{x:X(z[0]),y:Y(z[0])+22+(i%2?16:0),'text-anchor':'middle','class':'zone-lab'},svg);t.textContent=z[1];SL.push({t:t,pr:z[2],zi:i,zx:z[0]})});
+  var a=el('text',{x:X(0),y:BOT+66,'class':'zone-lab'},svg);a.textContent='← Крещатик';SL.push({t:a,pr:50});
+  var b=el('text',{x:X(1),y:BOT+66,'text-anchor':'end','class':'zone-lab'},svg);b.textContent='Банковая →';SL.push({t:b,pr:51});
+  svg._sl=SL.sort(function(p,q){return p.pr-q.pr});
+  return id;
+}
+function legend(stin,stage){
+  var L=document.createElement('div');L.className='legend';
+  L.innerHTML='<span><i style="background:var(--rsp)"></i><span class="xs">спецрота «Беркута»</span><span class="mo">спецрота</span></span>'+
+    '<span><i style="background:var(--oth)"></i><span class="xs">другие силовики</span><span class="mo">др. силовики</span></span>'+
+    '<span><i style="background:var(--mai)"></i><span class="xs">сторона Майдана</span><span class="mo">Майдан</span></span>'+
+    '<span><i style="background:repeating-linear-gradient(45deg,var(--hard) 0 2px,transparent 2px 4px);outline:1px solid var(--hard)"></i>трудно сказать</span>'+
+    '<span class="xs"><i style="border:1.6px solid var(--force);width:10px;height:10px"></i>погибшие силовики</span>'+
+    '<span class="sat" title="уверенность"><i></i><i style="opacity:.72"></i><i style="opacity:.5"></i><i style="opacity:.3"></i><em>уверенность ↓</em></span>'+
+    '<button type="button" class="q" aria-expanded="false" aria-label="Что означают цвета">?</button>';
+  var N=document.createElement('p');N.className='lnote';
+  N.innerHTML='<b>Цвет — самая вероятная сторона или подразделение; чем бледнее, тем меньше уверенность</b> (полный — от 85%, бледнее — 65–84%, ещё бледнее — 56–64%, совсем бледно — меньше 56%). «Сторона Майдана» — выстрел с территории, которую не контролировали силовики, а не обязательно протестующий. <span class="hv">Наведите на квадрат — имя и вывод.</span>';
+  stin.appendChild(L);stin.appendChild(N);
+  var q=L.querySelector('.q');q.addEventListener('click',function(){var o=stage.classList.toggle('lopen');q.setAttribute('aria-expanded',o)});
+}
+var tip=null;
+function scene(sec){
+  var svg=sec.querySelector('svg.street'),clk=sec.querySelector('.clk'),cnt=sec.querySelector('.cnt'),stin=sec.querySelector('.stage-in'),stage=sec.querySelector('.stage');
+  legend(stin,stage);
+  svg.setAttribute('preserveAspectRatio','xMidYMax meet');
+  var mob0=MOB();
+  var VB0=mob0?120:70,VBH=mob0?350:400;
+  var hid=base(svg,true);
+  var clip='cl'+(uid++),cp=el('clipPath',{id:clip},svg.querySelector('defs'));el('rect',{x:-200,y:VB0,width:1400,height:VBH},cp);
+  var front=el('rect',{x:X(.07),y:VB0,width:X(1)-X(.07),height:VBH,'class':'front','clip-path':'url(#'+clip+')'},svg);
+  var fg=el('g',{'class':'fg'},svg);
+  el('line',{x1:0,x2:0,y1:VB0+6,y2:mob0?VB0+VBH:BOT+30,'class':'frontline'},fg);
+  var ft=el('text',{x:6,y:VB0+20,'class':'flab'},fg);ft.textContent='силовики →';
+  var ft2=el('text',{x:-6,y:VB0+20,'text-anchor':'end','class':'mlab'},fg);ft2.textContent='← протестующие';
+  var AR={cons:el('path',{d:'M'+X(.05)+','+(Y(.03)-80)+' Q'+X(.065)+','+(Y(.05)-120)+' '+X(.085)+','+(Y(.08)-40),'class':'arrow'},svg),
+          hotel:el('path',{d:'M'+X(.34)+','+(Y(.3)-(mob0?150:200))+' Q'+X(.48)+','+(Y(.45)-(mob0?175:230))+' '+X(.575)+','+(Y(.58)-30),'class':'arrow'},svg),
+          h4:el('path',{d:'M'+X(.16)+','+(Y(.16)-8)+' Q'+X(.22)+','+(Y(.2)-60)+' '+X(.27)+','+(Y(.27)-14),'class':'arrow'},svg)};
+  var FD=[];
+  [.085,.098,.111,.29].forEach(function(f){var x=X(f),y=Y(f)-16;FD.push(el('rect',{x:x-6,y:y,width:12,height:12,'class':'fd'},svg))});
+  var SZ=16,G=3,stacks={},Q=[];
+  SORT.forEach(function(o){(stacks[o.z]=stacks[o.z]||[]).push(o)});
+  var gQ=el('g',{},svg),gL=el('g',{},svg);
+  Object.keys(stacks).forEach(function(z){var L=stacks[z],c=L.length>6?2:1,x0=ZX[z],y0=Y(x0)-G-2;
+    L.forEach(function(o,i){var mx=X(x0)-(c*(SZ+G)-G)/2+(i%c)*(SZ+G),my=y0-SZ-Math.floor(i/c)*(SZ+G);
+      var a=el('a',{href:DOS+'#'+o.id,'aria-label':o.n+', '+o.tm+'. '+verdict(o)+'. Карточка в досье',tabindex:-1},gQ);
+      var g=el('g',{'class':'sq'},a);
+      var r=el('rect',{x:mx,y:my,width:SZ,height:SZ,fill:o.k=='hard'?'url(#'+hid+')':col[o.k],'fill-opacity':op(o)},g);
+      if(o.k!='hard'&&lvl(o)==3){r.setAttribute('stroke',col[o.k]);r.setAttribute('stroke-width',1.2);r.setAttribute('stroke-opacity',.75)}
+      a.addEventListener('mouseenter',function(){showTip(o,r,stin)});a.addEventListener('mouseleave',hideTip);
+      a.addEventListener('focus',function(){showTip(o,r,stin)});a.addEventListener('blur',hideTip);
+      Q.push({o:o,g:g,a:a})});
+    stacks[z].top=Y(x0)-G-2-Math.ceil(L.length/c)*(SZ+G)});
+  var NUM=['','','два','три','четыре','пять','шесть','семь','восемь','девять','десять','одиннадцать','двенадцать','тринадцать'];
+  var cur=[0,1000],tw=null,K=1;
+  function box(){var r=svg.getBoundingClientRect();return [r.width||1,r.height||1]}
+  function apply(v){svg.setAttribute('viewBox',v[0].toFixed(1)+' '+VB0+' '+v[1].toFixed(1)+' '+VBH)}
+  /* на телефоне: кадр по подсвеченным квадратам И линии фронта с её подписями; ширина не меньше, чем позволяет высота графики */
+  function target(fr,byz){
+    if(!MOB())return[0,1000];
+    var bx=box(),minw=Math.max(560,bx[0]*VBH/bx[1]);
+    var zs=Object.keys(byz);
+    if(fr<0&&!zs.length)return[0,1000];
+    var a=1e9,b=-1e9,w=minw;
+    for(var it=0;it<2;it++){
+      var k=w/bx[0];a=1e9;b=-1e9;
+      zs.forEach(function(z){var x=X(ZX[z]);a=Math.min(a,x-60*k/2.2);b=Math.max(b,x+60*k/2.2)});
+      if(fr>=0){a=Math.min(a,X(fr)-112*k);b=Math.max(b,X(fr)+86*k)}
+      w=Math.min(1000,Math.max(minw,b-a));
+    }
+    var c=(a+b)/2;return[Math.max(0,Math.min(1000-w,c-w/2)),w]}
+  function setK(t){if(!MOB()){svg.style.removeProperty('--k');K=1;return}var bx=box();K=Math.max(t[1]/bx[0],VBH/bx[1]);svg.style.setProperty('--k',K.toFixed(3))}
+  function go(t){var f=cur.slice(),t0=performance.now();cancelAnimationFrame(tw);
+    if(matchMedia('(prefers-reduced-motion: reduce)').matches){cur=t;apply(cur);return}
+    (function k(n){var p=Math.min(1,(n-t0)/650);p=p<.5?2*p*p:1-Math.pow(-2*p+2,2)/2;cur=[f[0]+(t[0]-f[0])*p,f[1]+(t[1]-f[1])*p];apply(cur);if(p<1)tw=requestAnimationFrame(k)})(t0)}
+  function frontLabels(fr,vb){
+    var mob=MOB(),f=mob?11*K:12,y=mob?VB0+VBH-f*.45:VB0+f*1.15+4;
+    ft.setAttribute('x',6);ft.setAttribute('y',y);ft2.setAttribute('x',-6);ft2.setAttribute('y',y);ft2.setAttribute('text-anchor','end');
+    if(fr<0)return [];
+    var xf=X(fr),pad=mob?6*K:4,w1=ft.getComputedTextLength(),w2=ft2.getComputedTextLength();
+    if(xf+6+w1>vb[0]+vb[1]-pad)ft.setAttribute('x',vb[0]+vb[1]-pad-w1-xf);
+    var y2=y;if(xf-6-w2<vb[0]+pad){ft2.setAttribute('text-anchor','start');ft2.setAttribute('x',vb[0]+pad-xf);y2=mob?y-f*1.3:y+f*1.3;ft2.setAttribute('y',y2)}
+    var x1=xf+(+ft.getAttribute('x')),x2=ft2.getAttribute('text-anchor')=='end'?xf-6-w2:xf+(+ft2.getAttribute('x'));
+    return [{x:x1,y:y-f,w:w1,h:f*1.25},{x:x2,y:y2-f,w:w2,h:f*1.25}];
+  }
+  var boxes0=[];
+  function labels(byz,vb,obst){
+    while(gL.firstChild)gL.removeChild(gL.firstChild);
+    var mob=MOB(),lh=mob?11.5*K*1.22:17,pad=mob?6*K:6,blocks=[];boxes0=[];
+    Object.keys(byz).forEach(function(z){
+      var L=byz[z],names=L.map(function(o){return o.s}),lines;
+      if(names.length>6)lines=[(NUM[names.length]||names.length)+' погибших'];
+      else if(names.length>3){lines=[];for(var i=0;i<names.length;i+=2)lines.push(names.slice(i,i+2).join(' · '))}
+      else lines=names;
+      blocks.push({x:X(ZX[z]),y:stacks[z].top-8,lines:lines,n:names.length})});
+    blocks.sort(function(a,b){return a.x-b.x});
+    var placed=(obst||[]).slice(),top=VB0+(mob?4:14);
+    function hit(x,yt,w,h){return placed.some(function(P){return x-5<P.x+P.w+3&&x+w+5>P.x-3&&yt-3<P.y+P.h+3&&yt+h+3>P.y-3})}
+    function attempt(B,lines){
+      var g=el('g',{},gL),bg=el('rect',{'class':'tagbg',rx:2},g),ts=[];
+      lines.forEach(function(t,i){var tx=el('text',{x:0,y:0,'class':'tag'},g);tx.textContent=t;ts.push(tx)});
+      var w=0;ts.forEach(function(t){w=Math.max(w,t.getComputedTextLength())});
+      var h=lines.length*lh,minx=vb[0]+pad,maxx=vb[0]+vb[1]-pad-w;
+      function cx(x){return Math.max(minx,Math.min(maxx,x))}
+      var x0=cx(B.x-w/2),y0=Math.max(top,B.y-h);
+      /* кандидаты: над стопкой, выше соседних подписей, сбоку от них; берём ближайший свободный */
+      var xs=[x0],ys=[y0];
+      placed.forEach(function(P){xs.push(cx(P.x+P.w+9),cx(P.x-w-9));ys.push(P.y-h-7,P.y+P.h+7)});
+      for(var yy=y0;yy>=top;yy-=lh/2)ys.push(yy);
+      function ovl(x,yt){var a=0;placed.forEach(function(P){var ox=Math.min(x+w+5,P.x+P.w)-Math.max(x-5,P.x),oy=Math.min(yt+h+3,P.y+P.h)-Math.max(yt-3,P.y);if(ox>0&&oy>0)a+=ox*oy});return a}
+      var best=null,worst=null;
+      xs.forEach(function(x){ys.forEach(function(yt){
+        if(yt<top||yt+h>B.y+2)return;
+        var c=Math.abs(x-x0)*1.2+Math.abs(yt-y0);
+        if(hit(x,yt,w,h)){var o=ovl(x,yt)*100+c;if(!worst||o<worst.c)worst={x:x,y:yt,c:o};return}
+        if(!best||c<best.c)best={x:x,y:yt,c:c}})});
+      return {g:g,bg:bg,ts:ts,w:w,h:h,best:best,worst:worst||{x:x0,y:y0}};
+    }
+    blocks.forEach(function(B){
+      var A=attempt(B,B.lines);
+      if(!A.best&&B.lines.length>1){gL.removeChild(A.g);A=attempt(B,[(NUM[B.n]||B.n)+' погибших'])}
+      var pos=A.best||A.worst,x=pos.x,ytop=pos.y,h=A.h,w=A.w;
+      A.ts.forEach(function(t,i){t.setAttribute('x',x);t.setAttribute('y',ytop+(i+1)*lh-lh*.3)});
+      A.bg.setAttribute('x',x-5);A.bg.setAttribute('y',ytop-3);A.bg.setAttribute('width',w+10);A.bg.setAttribute('height',h+6);
+      var r={x:x-5,y:ytop-3,w:w+10,h:h+6};placed.push(r);boxes0.push(r);
+    });
+  }
+  /* на телефоне: постоянные подписи — крупно, но без наложений; лишние скрываются */
+  function declutter(vb,ob){
+    var SL=svg._sl,mob=MOB();
+    SL.forEach(function(L){L.t.classList.remove('hid');if(L.zi!=null){var f=mob?11*K:12;L.t.setAttribute('y',Y(L.zx)+(mob?f*1.15+2+(L.zi%2?f*1.2:0):22+(L.zi%2?16:0)))}});
+    if(!mob)return;
+    var taken=boxes0.concat(ob||[]);
+    SL.forEach(function(L){var b=L.t.getBBox(),r={x:b.x-3*K,y:b.y-1*K,w:b.width+6*K,h:b.height+2*K};
+      var out=r.x<vb[0]||r.x+r.w>vb[0]+vb[1]||r.y<VB0||r.y+r.h>VB0+VBH+2;
+      var hit=taken.some(function(P){return r.x<P.x+P.w&&r.x+r.w>P.x&&r.y<P.y+P.h&&r.y+r.h>P.y});
+      if(out||hit)L.t.classList.add('hid');else taken.push(r)});
+  }
+  function hm(t){var h=Math.floor(t/3600),m=Math.floor(t%3600/60);return(h<10?'0':'')+h+':'+(m<10?'0':'')+m}
+  var last=-1;
+  function render(s){
+    var T=+s.dataset.t,fr=+s.dataset.front,hl=(s.dataset.hl||'').split(',').filter(Boolean),fd=+(s.dataset.fd||0),ar=s.dataset.arrow,n=0,byz={};
+    Q.forEach(function(q){var o=q.o,h=hl.indexOf(o.s)>=0,on=o.t<=T||h;
+      q.g.setAttribute('class','sq'+(on?'':' off')+(on&&hl.length&&!h?' dim':'')+(h?' hl':''));q.a.setAttribute('tabindex',h?0:-1);if(on)n++;if(h)(byz[o.z]=byz[o.z]||[]).push(o)});
+    if(fr<0){front.setAttribute('x',X(1));front.setAttribute('width',0);fg.style.opacity=0}
+    else{front.setAttribute('x',X(fr));front.setAttribute('width',X(1)-X(fr));fg.style.opacity=1;fg.style.transform='translateX('+X(fr)+'px)'}
+    FD.forEach(function(r,i){r.setAttribute('class','fd'+(i<fd?'':' off'))});
+    for(var k in AR)AR[k].classList.toggle('on',k==ar);
+    var intro=T>=99999&&fr<0;
+    /* итог дня: без подписи «мостик» */
+    svg._sl.forEach(function(L){if(L.zi===1)L.t.style.display=intro?'none':''});
+    var t=target(fr,byz);setK(t);var ob=frontLabels(fr,t);labels(byz,t,ob);declutter(t,ob);go(t);
+    clk.textContent=s.dataset.clk||(T>=99999?(fr<0?'итог дня':'16:50'):hm(T));clk.classList.toggle('sm',intro);
+    cnt.textContent=n;
+  }
+  var steps=[].slice.call(sec.querySelectorAll('.step')),boxes=steps.map(function(s){return s.querySelector('.box')});
+  function pick(){
+    var vh=window.innerHeight,mob=window.innerWidth<700,line=mob?vh*.82:vh*.6,a=0;
+    for(var i=0;i<boxes.length;i++){if(boxes[i].getBoundingClientRect().top<line)a=i}
+    if(a!==last){last=a;sec.dataset.active=a;render(steps[a])}
+  }
+  var raf=0;function onScroll(){if(!raf)raf=requestAnimationFrame(function(){raf=0;pick()})}
+  window.addEventListener('scroll',onScroll,{passive:true});
+  window.addEventListener('resize',function(){last=-1;pick()});
+  render(steps[0]);last=0;sec.dataset.active=0;pick();
+}
+function showTip(o,r,stin){
+  if(!tip){tip=document.createElement('div');tip.className='sqtip';tip.setAttribute('aria-hidden','true')}
+  if(tip.parentNode!==stin)stin.appendChild(tip);
+  var sh=o.p;
+  tip.innerHTML='<b>'+o.n+'</b><span class="tm">'+o.tm+'</span><span class="v">'+verdict(o)+'</span><span class="sh">спецрота '+sh[0]+' · др. силовики '+sh[1]+' · Майдан '+sh[2]+'</span>';
+  var R=r.getBoundingClientRect(),P=stin.getBoundingClientRect();
+  tip.style.left='0px';tip.style.top='0px';tip.classList.add('on');
+  var tw=tip.offsetWidth,th=tip.offsetHeight,x=R.left-P.left+R.width/2-tw/2,y=R.top-P.top-th-10;
+  if(y<0)y=R.bottom-P.top+10;
+  x=Math.max(0,Math.min(P.width-tw,x));
+  tip.style.left=x+'px';tip.style.top=y+'px';
+}
+function hideTip(){if(tip)tip.classList.remove('on')}
+[].forEach.call(document.querySelectorAll('.scrolly'),scene);
+
+// карта огня
+(function(){
+  var svg=document.getElementById('firesvg');base(svg,false);
+  /* [тип, метка, x, y над улицей, ножка до улицы] */
+  var PINS=[['m','1',.0325,-82,1],['m','2',.06,-14,0],['m','3',.15,-40,1],['m','4',.44,-14,0],['m','5',.345,-178,0],
+            ['o','A',.17,-56,1],['f','B',.27,-14,0],['f','C',.665,-40,1],['f','D',.8,-56,1]];
+  var C={m:'var(--mai)',f:'var(--rsp)',o:'var(--oth)'};
+  function pin(p,x,y){var g=el('g',{'class':'pin '+p[0]},svg);
+    if(p[4])el('line',{x1:x,y1:y+12,x2:x,y2:Y(p[2])},g);
+    if(p[0]=='m')el('circle',{cx:x,cy:y,r:12,fill:C.m},g);else el('rect',{x:x-12,y:y-12,width:24,height:24,fill:C[p[0]]},g);
+    var t=el('text',{x:x,y:y+4.5,'text-anchor':'middle'},g);t.textContent=p[1];return g}
+  PINS.forEach(function(p){pin(p,X(p[2]),Y(p[2])+p[3])});
+  /* E — правительственный квартал за пределами профиля: справа, со стрелкой, а не на Нацбанке */
+  var ye=Y(1)-150,xe=1046;
+  el('path',{d:'M'+(X(.975)+4)+','+ye+' L'+(xe-18)+','+ye,stroke:'#e0912f','stroke-width':1.6,'stroke-dasharray':'4 4',fill:'none'},svg);
+  el('path',{d:'M'+(xe-24)+','+(ye-5)+' L'+(xe-16)+','+ye+' L'+(xe-24)+','+(ye+5),stroke:'#e0912f','stroke-width':1.6,fill:'none'},svg);
+  pin(['o','E',1,0,0],xe,ye);
+  var te=el('text',{x:xe,y:ye+30,'text-anchor':'middle','class':'lm'},svg);te.textContent='правит.';
+  var te2=el('text',{x:xe,y:ye+46,'text-anchor':'middle','class':'lm'},svg);te2.textContent='квартал';
+})();
+
+document.querySelectorAll('a.who').forEach(function(a){a.href=DOS+'#'+a.dataset.ep});
+var g48=document.getElementById('g48');
+SORT.forEach(function(o){var a=document.createElement('a');a.href=DOS+'#'+o.id;a.title=o.n+(o.b?' — пуля совпала с автоматом спецроты':'');a.setAttribute('aria-label',a.title);if(o.b)a.className='b';g48.appendChild(a)});
+var GR=[['rsp','Спецрота «Беркута»','вероятнее всего'],['oth','Другие силовики','вероятнее всего'],['mai','Сторона Майдана','вероятнее всего'],['hard','Трудно сказать','ни одна сторона не набирает 56%']];
+var U=document.getElementById('units');
+GR.forEach(function(g){var L=SORT.filter(function(o){return o.k==g[0]});
+  var d=document.createElement('div');d.className='ugrp';
+  d.innerHTML='<h4>'+g[1]+' <span class="nw">· '+L.length+'</span><small>'+g[2]+'</small></h4><div class="nm"></div>';
+  var nm=d.querySelector('.nm');
+  L.forEach(function(o){var a=document.createElement('a');a.href=DOS+'#'+o.id;
+    var c=g[0]=='hard'?'repeating-linear-gradient(45deg,var(--hard) 0 2px,transparent 2px 4px)':'var(--'+g[0]+')';
+    a.innerHTML='<i style="background:'+c+';opacity:'+(g[0]=='hard'?1:op(o))+(g[0]!='hard'&&lvl(o)==3?';box-shadow:inset 0 0 0 1px '+c:'')+'"></i>'+o.n;a.title=o.tm+' · '+verdict(o);nm.appendChild(a)});
+  U.appendChild(d)});
+
+/* увеличение кадра */
+(function(){
+  var lb=document.createElement('div');lb.className='lbx';lb.setAttribute('role','dialog');lb.setAttribute('aria-modal','true');lb.setAttribute('aria-label','Кадр крупно');
+  lb.innerHTML='<button type="button" aria-label="Закрыть">✕</button><img alt=""><p></p>';
+  document.body.appendChild(lb);
+  var im=lb.querySelector('img'),cp=lb.querySelector('p'),bt=lb.querySelector('button'),back=null;
+  function close(){lb.classList.remove('on');im.removeAttribute('src');document.documentElement.style.overflow='';if(back)back.focus()}
+  function open(f){var i=f.querySelector('img'),tc=f.querySelector('.tc');back=f;
+    im.src=i.currentSrc||i.src;im.alt=i.alt;cp.innerHTML='';
+    var nw=+i.getAttribute('width')||i.naturalWidth,nh=+i.getAttribute('height')||i.naturalHeight;
+    im.style.width=Math.max(10,Math.min(window.innerWidth-32,nw*2,(window.innerHeight-150)*nw/nh))+'px';
+    if(tc){var b=document.createElement('b');b.textContent=tc.textContent;cp.appendChild(b)}
+    cp.appendChild(document.createTextNode(i.alt));
+    var src=f.closest('.board')&&f.closest('.board').querySelector('.bsrc');if(src){cp.appendChild(document.createElement('br'));cp.appendChild(document.createTextNode(src.textContent))}
+    lb.classList.add('on');document.documentElement.style.overflow='hidden';bt.focus()}
+  document.querySelectorAll('.frame').forEach(function(f){
+    var i=f.querySelector('img'),w=+i.getAttribute('width');
+    if(w&&!f.closest('.frames.three'))f.style.maxWidth=w+'px';
+    f.setAttribute('tabindex','0');f.setAttribute('role','button');f.setAttribute('aria-label','Увеличить кадр: '+i.alt);
+    f.addEventListener('click',function(){open(f)});
+    f.addEventListener('keydown',function(e){if(e.key=='Enter'||e.key==' '){e.preventDefault();open(f)}})});
+  lb.addEventListener('click',close);
+  document.addEventListener('keydown',function(e){if(e.key=='Escape'&&lb.classList.contains('on'))close()});
+})();
+})();
+</script>
+<script>/* 07.10: переход в досье запоминает место в истории — кнопка досье «← К истории» вернёт сюда */
+(function(){function here(){var best=null,y=innerHeight*0.55;[].forEach.call(document.querySelectorAll('.step[id],main section[id],section[id]'),function(e){var r=e.getBoundingClientRect();if(r.height&&r.top<y)best=e});return best}
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="dossier.ru.html"]');if(!a)return;var el=a.closest('header.cover')||a.closest('.step[id]')||here();if(!el){try{sessionStorage.removeItem('dzFrom')}catch(_){}return;}var t='';var tt=el.classList&&el.classList.contains('step')&&el.querySelector('.box .t');if(tt)t=tt.textContent.trim();else{var h=el.querySelector&&el.querySelector('h2');if(h)t=h.textContent.trim().slice(0,40)}
+  try{sessionStorage.setItem('dzFrom',JSON.stringify({id:el.id,t:t,lang:document.documentElement.lang}))}catch(_){}},true);})();
+/* v58: переход в досье. В окне артефакта прокрутка внешней рамки переносится на новую страницу, а поднять её можно только
+   в ответ на клик читателя. Поэтому: страница закрывается заставкой (чтобы не было видно прокрутки), поднимается к началу,
+   и только потом открывается досье. Для ссылок на карточки (#ep-) — так же: под карточкой досье тогда тоже с начала. */
+document.addEventListener('click',function(e){if(e.defaultPrevented||e.button||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;var a=e.target.closest&&e.target.closest('a[href^="dossier.ru.html"]');if(!a||a.target)return;
+  e.preventDefault();var href=a.href;var cv=document.createElement('div');cv.setAttribute('aria-hidden','true');cv.style.cssText='position:fixed;inset:0;z-index:99999;background:'+(getComputedStyle(document.body).backgroundColor||'#121417')+';opacity:0;transition:opacity .12s';document.body.appendChild(cv);
+  requestAnimationFrame(function(){cv.style.opacity='1'});
+  function up(){var R=document.documentElement;R.style.scrollBehavior='auto';try{var c=document.querySelector('header')||document.body.firstElementChild;if(c&&c.scrollIntoView)c.scrollIntoView({block:'start',behavior:'instant'})}catch(_){}window.scrollTo(0,0)}
+  setTimeout(function(){up();setTimeout(function(){up();setTimeout(function(){location.href=href},250)},200)},120)});</script>
+<script>/*i18n-sw*/(function(){var s=document.createElement("nav");s.className="i18n-sw fx";s.setAttribute("aria-label","Language");s.innerHTML="<a href=\"index.html\" hreflang=\"en\">EN</a><a href=\"index.uk.html\" hreflang=\"uk\">UA</a><a href=\"index.ru.html\" hreflang=\"ru\" aria-current=\"true\">RU</a>";[].forEach.call(s.querySelectorAll("a"),function(a){a.addEventListener("click",function(){a.href=a.getAttribute("href").split("#")[0]+location.hash})});var nb=document.getElementById("navbar");if(nb&&!true){var r=nb.querySelector(".nb-find")||nb.lastElementChild;nb.insertBefore(s,r)}else{document.body.appendChild(s);s.classList.add("fx")}})();</script></body>
+</html>
