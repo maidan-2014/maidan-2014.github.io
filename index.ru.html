@@ -137,12 +137,13 @@ svg.street{width:100%;height:auto;display:block;overflow:visible}
 .street .road{fill:none;stroke:#7d868e;stroke-width:2}
 .street .ground{fill:#191c1f}
 .street .zone-lab{font-size:12px;fill:#7f888f}
-.street .lm{font-size:13px;fill:#9aa2a8}
+.street .lm{font-size:13px;fill:#9aa2a8;paint-order:stroke;stroke:var(--scene,#121417);stroke-width:7px;stroke-linejoin:round}
 .street .front{fill:rgba(200,53,43,.07);transition:x .9s ease,width .9s ease}
 .street .frontline{stroke:#c8352b;stroke-width:1.5;stroke-dasharray:3 4}
 .street .fg{transition:transform .9s ease,opacity .5s}
 .street .flab{font-size:12px;fill:#e88a83;letter-spacing:.06em;text-transform:uppercase}
 .street .mlab{font-size:12px;fill:#86ade0;letter-spacing:.06em;text-transform:uppercase}
+.street .mlab,.street .flab{paint-order:stroke;stroke:var(--scene,#121417);stroke-width:6px;stroke-linejoin:round}
 .street .sq{transition:opacity .45s ease,transform .45s ease;transform-box:fill-box;transform-origin:center}
 .street .sq.off{opacity:0;transform:scale(.4)}
 .street .sq.dim{opacity:.3}
@@ -822,14 +823,14 @@ function base(svg,isScene){
   el('rect',{width:5,height:5,fill:'#2a2f34'},pt);el('line',{x1:0,y1:0,x2:0,y2:5,stroke:'#a9b1b8','stroke-width':2.2},pt);
   var gB=el('g',{},svg);
   function bld(x0,x1,h,lab,ly,pr){var yb=Y((x0+x1)/2);el('rect',{x:X(x0),y:yb-h,width:X(x1)-X(x0),height:h,'class':'bld'},gB);if(lab){var t=el('text',{x:X((x0+x1)/2),y:ly||yb-h-8,'text-anchor':'middle','class':'lm'},gB);t.textContent=lab;SL.push({t:t,pr:pr})}}
-  bld(.005,.06,120,'Консерватория',0,20);
+  bld(.005,.06,120,'Консерватория',Y(.07)-162,20);
   bld(.18,.36,215,mob?'гостиница «Украина»':'гостиница «Украина» (через улицу)',0,30);
   bld(.22,.33,70,'Октябрьский дворец',Y(.275)-78,25);
   bld(.55,.62,105,'«Аркада»',0,22);
   bld(.86,.97,120,'Нацбанк',0,40);
   for(var i=0;i<6;i++){el('line',{x1:X(.235+i*.017),x2:X(.235+i*.017),y1:Y(.275)-60,y2:Y(.275)-6,stroke:'#3d454c','stroke-width':2},gB)}
   el('line',{x1:X(.07),x2:X(.07),y1:Y(.07)-150,y2:Y(.07),stroke:'#5b646c','stroke-width':4},gB);
-  var st=el('text',{x:X(.07)+8,y:Y(.07)-140,'class':'lm'},gB);st.textContent='Стела';SL.push({t:st,pr:45});
+  var st=el('text',{x:X(.07)+8,y:Y(.07)-140,'class':'lm'},gB);st.textContent='Стела';SL.push({t:st,pr:45});SL.forEach(function(o){o.t.parentNode.appendChild(o.t)});
   var dp='M'+X(0)+','+Y(0);for(var i=1;i<=100;i++)dp+=' L'+X(i/100).toFixed(1)+','+Y(i/100).toFixed(1);
   el('path',{d:dp+' L'+X(1)+','+(BOT+70)+' L'+X(0)+','+(BOT+70)+'Z','class':'ground'},svg);
   el('path',{d:dp,'class':'road'},svg);
@@ -869,7 +870,7 @@ function scene(sec){
   var fg=el('g',{'class':'fg'},svg);
   el('line',{x1:0,x2:0,y1:VB0+6,y2:mob0?VB0+VBH:BOT+30,'class':'frontline'},fg);
   var ft=el('text',{x:6,y:VB0+20,'class':'flab'},fg);ft.textContent='силовики →';
-  var ft2=el('text',{x:-6,y:VB0+20,'text-anchor':'end','class':'mlab'},fg);ft2.textContent='← протестующие';
+  var ft2=el('text',{x:-6,y:VB0+20,'text-anchor':'end','class':'mlab'},fg);ft2.textContent='← протестующие';ft.textContent=ft.textContent.toUpperCase();ft2.textContent=ft2.textContent.toUpperCase();
   var AR={cons:el('path',{d:'M'+X(.05)+','+(Y(.03)-80)+' Q'+X(.065)+','+(Y(.05)-120)+' '+X(.085)+','+(Y(.08)-40),'class':'arrow'},svg),
           hotel:el('path',{d:'M'+X(.34)+','+(Y(.3)-(mob0?150:200))+' Q'+X(.48)+','+(Y(.45)-(mob0?175:230))+' '+X(.575)+','+(Y(.58)-30),'class':'arrow'},svg),
           h4:el('path',{d:'M'+X(.16)+','+(Y(.16)-8)+' Q'+X(.22)+','+(Y(.2)-60)+' '+X(.27)+','+(Y(.27)-14),'class':'arrow'},svg)};
@@ -877,7 +878,7 @@ function scene(sec){
   [.085,.098,.111,.29].forEach(function(f){var x=X(f),y=Y(f)-16;FD.push(el('rect',{x:x-6,y:y,width:12,height:12,'class':'fd'},svg))});
   var SZ=16,G=3,stacks={},Q=[];
   SORT.forEach(function(o){(stacks[o.z]=stacks[o.z]||[]).push(o)});
-  var gQ=el('g',{},svg),gL=el('g',{},svg);
+  var gQ=el('g',{},svg),gL=el('g',{},svg);(svg._sl||[]).forEach(function(o){if(o.t.classList.contains('lm'))svg.insertBefore(o.t,gQ)});
   Object.keys(stacks).forEach(function(z){var L=stacks[z],c=L.length>6?2:1,x0=ZX[z],y0=Y(x0)-G-2;
     L.forEach(function(o,i){var mx=X(x0)-(c*(SZ+G)-G)/2+(i%c)*(SZ+G),my=y0-SZ-Math.floor(i/c)*(SZ+G);
       var a=el('a',{href:DOS+'#'+o.id,'aria-label':o.n+', '+o.tm+'. '+verdict(o)+'. Карточка в досье',tabindex:-1},gQ);
