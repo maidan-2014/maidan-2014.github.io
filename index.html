@@ -397,7 +397,7 @@ svg.street{width:100%;height:auto;display:block;overflow:visible}
 @media (max-width:640px){.dossier ul{columns:1}}
 .foot{font-family:var(--sans);font-size:13.5px;color:var(--ink2);padding-block:28px 48px;line-height:1.55}
 @media (max-width:640px){body{font-size:18px}.sec{padding-block:56px 18px}}
-</style>
+.dosbtn.bkbtn{margin-left:10px}.dossier .go.bkgo{margin-left:10px}.books{background:var(--scene);color:var(--sink);padding-block:8px 64px}.books h2{color:#f4f5f3}.books p{color:#c9cfd3}.books .kick{color:var(--sink2)}.bks{display:flex;gap:36px;flex-wrap:wrap;margin-top:26px}.bk{margin:0;display:flex;flex-direction:column;gap:10px;width:180px}.bk img{display:block;width:180px;height:auto;box-shadow:0 6px 22px rgba(0,0,0,.45);border:1px solid #2a2f34}.bk figcaption{font-family:var(--sans);font-size:14px;color:#aeb5ba;display:flex;flex-direction:column;gap:3px}.bk figcaption b{color:#f4f5f3;font-size:15px}.bk .bkl a{color:#f2f3f1;font-weight:600}html[lang^="en"] .bk-en{order:-1}@media (max-width:520px){.dosbtn.bkbtn,.dossier .go.bkgo{margin-left:0;margin-top:10px}.bks{gap:20px}.bk{width:calc(50% - 10px)}.bk img{width:100%}}</style>
 <style>/*uq*/.uq-tr{color:var(--muted,#666);font-style:normal;font-size:.94em}</style><style>/*i18n*/.i18n-sw{display:inline-flex;gap:2px;align-items:center;font:600 12px/1 var(--sans,system-ui,sans-serif);margin-right:10px}.i18n-sw a{padding:5px 6px;border-radius:4px;color:var(--muted,#888);text-decoration:none;letter-spacing:.04em}.i18n-sw a[aria-current]{color:var(--ink,#111);background:var(--soft,rgba(127,127,127,.15))}.i18n-sw.fx{position:fixed;top:10px;right:12px;z-index:50;background:rgba(14,16,18,.85);border:1px solid #2c3238;border-radius:6px;padding:2px}.i18n-sw.fx a{color:#9aa2a8}.i18n-sw.fx a[aria-current]{color:#f4f5f3;background:#2c3238}@media (max-width:700px){.i18n-sw{margin-right:6px}.i18n-sw a{padding:4px 4px}}</style></head>
 <body>
 <header class="cover wrap" id="top">
@@ -408,6 +408,7 @@ svg.street{width:100%;height:auto;display:block;overflow:visible}
     <p class="verdict">In Claude’s estimate, roughly 28 of the 48 deaths are attributable to the Berkut special company, about 11 to other security forces, and about 9 to fire from the Maidan side.</p>
     <div class="by">An analysis of the case record · October 7, 2026 · about 30 min read</div><div class="by aidisc" style="font-size:.86em;opacity:.72;margin-top:.5em">Prepared with Claude, an AI model made by Anthropic. Anthropic is not affiliated with this project and has not reviewed or endorsed it.</div>
     <a class="dosbtn" href="dossier.html">Full dossier: 48 cards, method, sources →</a>
+    <a class="dosbtn bkbtn" href="#books">Book: PDF and EPUB ↓</a>
     <nav class="toc" aria-label="Chapters">
       <a href="#before">The day before</a><a href="#act1">The footbridge</a><a href="#act2">The palace and the alley</a><a href="#act3">The barricade</a><a href="#act3b">At the metro</a><a href="#weigh">How Claude weighs</a><a href="#fire">Who fired from where</a><a href="#maidan">The other side</a><a href="#order">Who ordered the shooting</a><a href="#kat">The dispute with Katchanovski</a><a href="#result">Bottom line</a><a href="#open">What remains open</a><a href="dossier.html"><b>Dossier →</b></a>
     </nav>
@@ -771,6 +772,17 @@ svg.street{width:100%;height:auto;display:block;overflow:visible}
     <li>48 cards for the dead</li><li>Timeline, February 18–20</li><li>Ballistics and expert examinations</li><li>Who stood where</li><li>Analysis of Katchanovski’s book</li><li>Method and calculator</li><li>Frames and video</li><li>Sources</li>
   </ul>
   <a class="go" href="dossier.html">Open the dossier →</a>
+  <a class="go bkgo" href="#books">Download the book ↓</a>
+</div></section>
+
+<section class="books wrap" id="books"><div class="col">
+  <div class="kick">Book</div>
+  <h2>Download the book for free</h2>
+  <p>The same analysis as a book: the morning of February 20 minute by minute, all 48 deaths in order, the dispute between the court and Katchanovski. The text was written by Claude from the dossier. Free, in PDF and EPUB, in Ukrainian and English.</p>
+  <div class="bks">
+    <figure class="bk bk-uk"><a href="https://github.com/maidan-2014/maidan-2014.github.io/releases/download/books/Sorok-visim.pdf"><img src="img/book_uk.jpg" alt="Cover of the book “Sorok visim” (Forty-Eight, Ukrainian edition)" width="180" height="270" loading="lazy"></a><figcaption><b>“Sorok visim”</b><span>in Ukrainian</span><span class="bkl"><a href="https://github.com/maidan-2014/maidan-2014.github.io/releases/download/books/Sorok-visim.pdf">PDF</a> · <a href="https://github.com/maidan-2014/maidan-2014.github.io/releases/download/books/Sorok-visim.epub">EPUB</a></span></figcaption></figure>
+    <figure class="bk bk-en"><a href="https://github.com/maidan-2014/maidan-2014.github.io/releases/download/books/Forty-Eight.pdf"><img src="img/book_en.jpg" alt="Cover of the book “Forty-Eight”" width="180" height="270" loading="lazy"></a><figcaption><b>“Forty-Eight”</b><span>in English</span><span class="bkl"><a href="https://github.com/maidan-2014/maidan-2014.github.io/releases/download/books/Forty-Eight.pdf">PDF</a> · <a href="https://github.com/maidan-2014/maidan-2014.github.io/releases/download/books/Forty-Eight.epub">EPUB</a></span></figcaption></figure>
+  </div>
 </div></section>
 
 <footer class="foot wrap"><div class="col"><p class="aidisc" style="margin:0 0 .8em">Prepared with Claude, an AI model made by Anthropic. Anthropic is not affiliated with this project and has not reviewed or endorsed it.</p><p class="aidisc legal" style="margin:0 0 .8em;font-size:.9em;opacity:.8">Defendants, suspects and rank-and-file members of the security forces are referred to by role only, whether or not convicted; former senior officials by their office. Living witnesses and wounded protesters are not named. Nothing on this site is a finding of guilt about any person; only a court can make one. The BBC, CNN, Reuters, VRT, SITU Research and others are cited as sources only; none of them has reviewed or endorsed this site. Quotations from Ivan Katchanovski, The Maidan Massacre in Ukraine (Palgrave Macmillan, 2024), are used under its CC BY 4.0 licence.</p>

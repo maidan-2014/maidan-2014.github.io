@@ -397,7 +397,7 @@ svg.street{width:100%;height:auto;display:block;overflow:visible}
 @media (max-width:640px){.dossier ul{columns:1}}
 .foot{font-family:var(--sans);font-size:13.5px;color:var(--ink2);padding-block:28px 48px;line-height:1.55}
 @media (max-width:640px){body{font-size:18px}.sec{padding-block:56px 18px}}
-</style>
+.dosbtn.bkbtn{margin-left:10px}.dossier .go.bkgo{margin-left:10px}.books{background:var(--scene);color:var(--sink);padding-block:8px 64px}.books h2{color:#f4f5f3}.books p{color:#c9cfd3}.books .kick{color:var(--sink2)}.bks{display:flex;gap:36px;flex-wrap:wrap;margin-top:26px}.bk{margin:0;display:flex;flex-direction:column;gap:10px;width:180px}.bk img{display:block;width:180px;height:auto;box-shadow:0 6px 22px rgba(0,0,0,.45);border:1px solid #2a2f34}.bk figcaption{font-family:var(--sans);font-size:14px;color:#aeb5ba;display:flex;flex-direction:column;gap:3px}.bk figcaption b{color:#f4f5f3;font-size:15px}.bk .bkl a{color:#f2f3f1;font-weight:600}html[lang^="en"] .bk-en{order:-1}@media (max-width:520px){.dosbtn.bkbtn,.dossier .go.bkgo{margin-left:0;margin-top:10px}.bks{gap:20px}.bk{width:calc(50% - 10px)}.bk img{width:100%}}</style>
 <style>/*uq*/.uq-tr{color:var(--muted,#666);font-style:normal;font-size:.94em}</style><style>/*i18n*/.i18n-sw{display:inline-flex;gap:2px;align-items:center;font:600 12px/1 var(--sans,system-ui,sans-serif);margin-right:10px}.i18n-sw a{padding:5px 6px;border-radius:4px;color:var(--muted,#888);text-decoration:none;letter-spacing:.04em}.i18n-sw a[aria-current]{color:var(--ink,#111);background:var(--soft,rgba(127,127,127,.15))}.i18n-sw.fx{position:fixed;top:10px;right:12px;z-index:50;background:rgba(14,16,18,.85);border:1px solid #2c3238;border-radius:6px;padding:2px}.i18n-sw.fx a{color:#9aa2a8}.i18n-sw.fx a[aria-current]{color:#f4f5f3;background:#2c3238}@media (max-width:700px){.i18n-sw{margin-right:6px}.i18n-sw a{padding:4px 4px}}</style></head>
 <body>
 <header class="cover wrap" id="top">
@@ -408,6 +408,7 @@ svg.street{width:100%;height:auto;display:block;overflow:visible}
     <p class="verdict">За оцінкою Claude, приблизно 28 із 48 смертей припадає на спецроту «Беркуту», близько 11 — на інших силовиків, близько 9 — на вогонь з боку Майдану.</p>
     <div class="by">Розбір за матеріалами справи · 7 жовтня 2026 · близько 30 хвилин читання</div><div class="by aidisc" style="font-size:.86em;opacity:.72;margin-top:.5em">Підготовлено за допомогою Claude — моделі ШІ від Anthropic. Anthropic не повʼязана з цим проєктом, не перевіряла й не схвалювала його.</div>
     <a class="dosbtn" href="dossier.uk.html">Повне досьє: 48 карток, метод, джерела →</a>
+    <a class="dosbtn bkbtn" href="#books">Книжка: PDF і EPUB ↓</a>
     <nav class="toc" aria-label="Розділи">
       <a href="#before">Напередодні</a><a href="#act1">Місток</a><a href="#act2">Палац і алея</a><a href="#act3">Барикада</a><a href="#act3b">Біля метро</a><a href="#weigh">Як Claude зважує</a><a href="#fire">Хто звідки стріляв</a><a href="#maidan">Інша сторона</a><a href="#order">Хто дав наказ стріляти</a><a href="#kat">Суперечка з Качановським</a><a href="#result">Підсумок</a><a href="#open">Що лишається відкритим</a><a href="dossier.uk.html"><b>Досьє →</b></a>
     </nav>
@@ -771,6 +772,17 @@ svg.street{width:100%;height:auto;display:block;overflow:visible}
     <li>48 карток загиблих</li><li>Хронологія 18–20 лютого</li><li>Балістика й експертизи</li><li>Хто де стояв</li><li>Розбір книжки Качановського</li><li>Метод і калькулятор</li><li>Кадри й відео</li><li>Джерела</li>
   </ul>
   <a class="go" href="dossier.uk.html">Відкрити досьє →</a>
+  <a class="go bkgo" href="#books">Завантажити книжку ↓</a>
+</div></section>
+
+<section class="books wrap" id="books"><div class="col">
+  <div class="kick">Книжка</div>
+  <h2>Завантажити книжку безкоштовно</h2>
+  <p>Той самий аналіз у вигляді книжки: ранок 20 лютого хвилина за хвилиною, усі 48 смертей по черзі, суперечка суду і Качановського. Текст написав Claude за матеріалами досьє. Безкоштовно, у форматах PDF і EPUB, українською та англійською.</p>
+  <div class="bks">
+    <figure class="bk bk-uk"><a href="https://github.com/maidan-2014/maidan-2014.github.io/releases/download/books/Sorok-visim.pdf"><img src="img/book_uk.jpg" alt="Обкладинка книжки «Сорок вісім»" width="180" height="270" loading="lazy"></a><figcaption><b>«Сорок вісім»</b><span>українською</span><span class="bkl"><a href="https://github.com/maidan-2014/maidan-2014.github.io/releases/download/books/Sorok-visim.pdf">PDF</a> · <a href="https://github.com/maidan-2014/maidan-2014.github.io/releases/download/books/Sorok-visim.epub">EPUB</a></span></figcaption></figure>
+    <figure class="bk bk-en"><a href="https://github.com/maidan-2014/maidan-2014.github.io/releases/download/books/Forty-Eight.pdf"><img src="img/book_en.jpg" alt="Обкладинка книжки «Forty-Eight»" width="180" height="270" loading="lazy"></a><figcaption><b>«Forty-Eight»</b><span>англійською</span><span class="bkl"><a href="https://github.com/maidan-2014/maidan-2014.github.io/releases/download/books/Forty-Eight.pdf">PDF</a> · <a href="https://github.com/maidan-2014/maidan-2014.github.io/releases/download/books/Forty-Eight.epub">EPUB</a></span></figcaption></figure>
+  </div>
 </div></section>
 
 <footer class="foot wrap"><div class="col"><p class="aidisc" style="margin:0 0 .8em">Підготовлено за допомогою Claude — моделі ШІ від Anthropic. Anthropic не повʼязана з цим проєктом, не перевіряла й не схвалювала його.</p><p class="aidisc legal" style="margin:0 0 .8em;font-size:.9em;opacity:.8">Підсудних, підозрюваних і рядових співробітників силових структур названо лише за роллю, незалежно від вироку; колишніх високопосадовців — за посадою. Живих свідків і поранених на імʼя не названо. Ніщо на сайті не є встановленням чиєїсь вини: це може зробити лише суд. BBC, CNN, Reuters, VRT, SITU Research та інших цитовано як джерела; ніхто з них сайт не перевіряв і не схвалював. Цитати з книжки І. Качановського «The Maidan Massacre in Ukraine» (Palgrave Macmillan, 2024) наведено за ліцензією CC BY 4.0.</p>
