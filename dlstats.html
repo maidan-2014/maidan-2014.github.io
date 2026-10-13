@@ -4,11 +4,11 @@ body{background:var(--bg);color:var(--fg);font:16px/1.5 system-ui,sans-serif;mar
 table{width:100%;border-collapse:collapse;margin:16px 0}td,th{padding:8px 4px;border-bottom:1px solid var(--rule);text-align:left}td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
 .tot{font-size:28px;font-weight:700}.mu{color:var(--mu);font-size:14px}</style></head><body><main>
 <h1>Скачивания книг</h1><div class="tot" id="tot">…</div><table><thead><tr><th>Файл</th><th class="n">Скачиваний</th></tr></thead><tbody id="tb"></tbody></table>
-<p class="mu" id="st">Данные GitHub по релизу «books». Считаются все загрузки, включая повторные и ботов.</p></main>
+<p class="mu" id="st">Данные GitHub по последнему релизу. Считаются все загрузки, включая повторные и ботов.</p></main>
 <script>
-fetch('https://api.github.com/repos/maidan-2014/maidan-2014.github.io/releases/tags/books',{headers:{Accept:'application/vnd.github+json'}})
+fetch('https://api.github.com/repos/maidan-2014/maidan-2014.github.io/releases/latest',{headers:{Accept:'application/vnd.github+json'}})
 .then(function(r){if(!r.ok)throw new Error(r.status);return r.json()}).then(function(d){var s=0,tb=document.getElementById('tb');
 (d.assets||[]).forEach(function(a){s+=a.download_count;var tr=document.createElement('tr');tr.innerHTML='<td></td><td class="n"></td>';tr.cells[0].textContent=a.name;tr.cells[1].textContent=a.download_count;tb.appendChild(tr)});
 document.getElementById('tot').textContent='Всего: '+s;document.getElementById('st').textContent+=' Обновлено: '+new Date().toLocaleString('ru-RU')+'.'})
-.catch(function(e){document.getElementById('tot').textContent='Релиз «books» пока не найден ('+e.message+')'});
+.catch(function(e){document.getElementById('tot').textContent='Релиз пока не найден ('+e.message+')'});
 </script></body></html>
